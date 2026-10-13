@@ -25,6 +25,9 @@ User → ADK agent (Gemini) → tool: read_calendar (CSV / Google Sheet)
 - **What counts as a pass:** [e.g., flags every meeting over 60 min with no agenda; never suggests cutting a blocked focus time]
 - **Result:** [X/10] passed. [One sentence on what failed and why.]
 
+ ## Reliability: what broke and how I handled it.
+ my agent failed on a 503 from the model, so I switched models, and in production I'd add automatic retries with a fallback model
+
 ## Run it
 1. Get a Gemini API key from Google AI Studio
 2. `pip install google-adk`
