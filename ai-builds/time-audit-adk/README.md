@@ -29,6 +29,10 @@ User → ADK agent (Gemini) → tool: read_calendar (CSV / Google Sheet)
  my agent failed on a 503 from the model, so I switched models, and in production I'd add automatic retries with a fallback model
 <img width="1552" height="795" alt="2026-10-13_14-48-17" src="https://github.com/user-attachments/assets/f15847db-9596-42b5-8752-1b4b6a234344" />
 
+Retired model (404 NOT_FOUND). My fallback, gemini-2.5-flash, was no longer available to new users. I moved to gemini-3.8-flash. Lesson: don't hard-code a model version without a plan to update it. In production I'd keep the model name in configuration, not code, and check deprecation notices on a schedule.
+<img width="1552" height="795" alt="2026-10-13_14-48-17" src="https://github.com/user-attachments/assets/2c7a8866-99ed-43c9-aa6a-5681e44d9482" />
+
+
 ## Run it
 1. Get a Gemini API key from Google AI Studio
 2. `pip install google-adk`
