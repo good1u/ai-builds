@@ -27,6 +27,7 @@ User → ADK agent (Gemini) → tool: read_calendar (CSV / Google Sheet)
 
  ## Reliability: what broke and how I handled it.
  my agent failed on a 503 from the model, so I switched models, and in production I'd add automatic retries with a fallback model
+<img width="1552" height="795" alt="2026-10-13_14-48-17" src="https://github.com/user-attachments/assets/f15847db-9596-42b5-8752-1b4b6a234344" />
 
 ## Run it
 1. Get a Gemini API key from Google AI Studio
