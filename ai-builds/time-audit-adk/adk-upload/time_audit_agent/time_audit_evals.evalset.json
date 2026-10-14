@@ -1,0 +1,4237 @@
+{
+  "eval_set_id": "time_audit_evals",
+  "name": "time_audit_evals",
+  "eval_cases": [
+    {
+      "eval_id": "Run_a_time_audit_on_my_week",
+      "conversation": [
+        {
+          "invocation_id": "e-c81d70ca-892b-45c0-97d2-4499ee14cbb9",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Run a time audit on my week."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "### No-agenda meetings\n- Daily standup (2.5 hours): Shorten (reduce to 15 minutes or move to asynchronous updates).\n- Status update with vendor (2.5 hours): Add an agenda.\n- Weekly leadership sync (1.5 hours): Keep (essential strategic alignment).\n- Vendor demo: scheduling tool (1.0 hour): Cut.\n- Networking call (1.0 hour): Cut.\n\n### Cut\n- Vendor demo: scheduling tool (1.0 hour)\n- Networking call (1.0 hour)\n*Estimated hours reclaimed: 1.0 + 1.0 = 2.0 hours per week*\n\n### Delegate\n- Expense reports (0.5 hours)\n- Invoice follow-ups (1.0 hour)\n- CRM data cleanup (1.5 hours)\n*Estimated hours reclaimed: 0.5 + 1.0 + 1.5 = 3.0 hours per week*\n\n### Batch\n- Email and Slack catch-up (2.0 hours)\n- Reporting for weekly metrics (1.5 hours)\n*Estimated hours reclaimed (25% of 3.5 batched hours): 3.5 × 0.25 = 0.875 hours per week*\n\nTotal hours reclaimed per week: 2.0 + 3.0 + 0.875 = 5.875 hours per week",
+                "thought_signature": "EmAKXgFpFH0TTjhWLQlyLwC06A4gtqqgcBWipQ7XT2saofBYaYqi1QdUaec2a44VJhLT2knd3YK7SC2dWQuyxIS2XISNYSK4OlirgkVYmC15c50Xo_N53GZBqj4zDmq8nfI="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "time_audit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "call_1237659",
+                        "args": {},
+                        "name": "read_calendar"
+                      },
+                      "thought_signature": "EmAKXgFpFH0TOkiFAqZNAl_53kliDM1ixWCfSJewemR797rjoIiEyTf0JN3S2rmfIUwKTehG5SGFgyebP6yOR5lfgbCStgMSzhEnjtMAIMVp2MdXMZrxcSu8P3MM4d0AwBA="
+                    },
+                    {
+                      "function_call": {
+                        "id": "call_1237660",
+                        "args": {},
+                        "name": "calculate_time_breakdown"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                },
+                "usage_metadata": {
+                  "candidates_token_count": 23,
+                  "prompt_token_count": 598,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 598
+                    }
+                  ],
+                  "total_token_count": 621
+                },
+                "model_version": "gemini-3.5-flash-lite"
+              },
+              {
+                "author": "time_audit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "call_1237659",
+                        "name": "read_calendar",
+                        "response": {
+                          "status": "success",
+                          "event_count": 29,
+                          "events": [
+                            {
+                              "date": "2026-10-12",
+                              "start": "08:00",
+                              "end": "09:30",
+                              "title": "Deep work: proposal writing",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "Pipeline review",
+                              "category": "Internal meeting",
+                              "attendees": 5,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Discovery call: Acme Logistics",
+                              "category": "Client",
+                              "attendees": 3,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Email and Slack catch-up",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "14:00",
+                              "end": "15:30",
+                              "title": "Status update with vendor",
+                              "category": "External meeting",
+                              "attendees": 4,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "15:30",
+                              "end": "17:00",
+                              "title": "Proposal edits",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "10:00",
+                              "end": "11:30",
+                              "title": "Weekly leadership sync",
+                              "category": "Internal meeting",
+                              "attendees": 8,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "11:30",
+                              "end": "12:00",
+                              "title": "Expense reports",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Client workshop prep",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "14:00",
+                              "end": "16:00",
+                              "title": "Client workshop: Northwind",
+                              "category": "Client",
+                              "attendees": 7,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 2.0
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "16:00",
+                              "end": "17:00",
+                              "title": "Invoice follow-ups",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "1:1 with ops lead",
+                              "category": "Internal meeting",
+                              "attendees": 2,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Vendor demo: scheduling tool",
+                              "category": "External meeting",
+                              "attendees": 5,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "13:00",
+                              "end": "14:30",
+                              "title": "CRM data cleanup",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "14:30",
+                              "end": "15:30",
+                              "title": "Coffee chat with prospect",
+                              "category": "Client",
+                              "attendees": 2,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "15:30",
+                              "end": "17:00",
+                              "title": "School pickup and family time",
+                              "category": "Family",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "10:00",
+                              "end": "12:00",
+                              "title": "Deep work: agent build",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 2.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Status update with vendor",
+                              "category": "External meeting",
+                              "attendees": 4,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "14:00",
+                              "end": "15:00",
+                              "title": "Proposal review: Acme Logistics",
+                              "category": "Client",
+                              "attendees": 3,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "15:00",
+                              "end": "16:30",
+                              "title": "Reporting for weekly metrics",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "All-hands",
+                              "category": "Internal meeting",
+                              "attendees": 25,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Email and Slack catch-up",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Networking call",
+                              "category": "External meeting",
+                              "attendees": 2,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "14:00",
+                              "end": "15:00",
+                              "title": "Week planning",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "function_response": {
+                        "id": "call_1237660",
+                        "name": "calculate_time_breakdown",
+                        "response": {
+                          "status": "success",
+                          "total_hours": 31.5,
+                          "hours_by_category": {
+                            "Focus": 7.0,
+                            "Internal meeting": 7.0,
+                            "Client": 5.0,
+                            "Admin": 6.5,
+                            "External meeting": 4.5,
+                            "Family": 1.5
+                          },
+                          "meetings_without_agenda": {
+                            "Daily standup": 2.5,
+                            "Status update with vendor": 2.5,
+                            "Weekly leadership sync": 1.5,
+                            "Vendor demo: scheduling tool": 1.0,
+                            "Networking call": 1.0
+                          },
+                          "meeting_hours_without_agenda": 8.5,
+                          "recurring_hours": 16.5,
+                          "largest_time_blocks": {
+                            "Daily standup": 2.5,
+                            "Status update with vendor": 2.5,
+                            "Email and Slack catch-up": 2.0,
+                            "Client workshop: Northwind": 2.0,
+                            "Deep work: agent build": 2.0
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "time_audit_agent",
+                "usage_metadata": {
+                  "candidates_token_count": 307,
+                  "prompt_token_count": 2971,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 2971
+                    }
+                  ],
+                  "total_token_count": 3278
+                },
+                "model_version": "gemini-3.5-flash-lite"
+              }
+            ]
+          },
+          "creation_timestamp": 1792007204.4321642
+        }
+      ],
+      "session_input": {
+        "app_name": "time_audit_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1792007210.228173
+    },
+    {
+      "eval_id": "Where_am_I_wasting_the_most_time",
+      "conversation": [
+        {
+          "invocation_id": "e-6e647049-16a3-4ea8-bf72-c85b7214aaa9",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Where am I wasting the most time?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "### No-agenda meetings\n\n* **Daily standup** (2.5 hours): Keep (quick team alignment).\n* **Networking call** (1 hour): Cut (low return on time).\n* **Status update with vendor** (2.5 hours): Add an agenda or shorten (async updates suffice).\n* **Vendor demo: scheduling tool** (1 hour): Cut (not a current priority).\n* **Weekly leadership sync** (1.5 hours): Add an agenda (too large and long without structure).\n\n---\n\n### Cut\n* **Networking call**: 1 hour\n* **Vendor demo: scheduling tool**: 1 hour\n* *Hours reclaimed:* 1.0 + 1.0 = 2.0 hours\n\n### Delegate\n* **Expense reports** (0.5 hours)\n* **Invoice follow-ups** (1.0 hour)\n* **CRM data cleanup** (1.5 hours)\n* *Hours reclaimed:* 0.5 + 1.0 + 1.5 = 3.0 hours\n\n### Batch\n* **Email and Slack catch-up** (2.0 hours)\n* **Reporting for weekly metrics** (1.5 hours)\n* *Hours batched:* 2.0 + 1.5 = 3.5 hours\n* *Estimated hours reclaimed (25%):* 0.875 hours\n\n---\n\nTotal hours reclaimed per week: 5.875 hours",
+                "thought_signature": "EmAKXgFpFH0TJ_k444qlsKb7_ccNpN_cAMivolEnihRS_WgyfbQBcSnIRGnGflVGtREGTLFSPtOzpJVW1_u7BVaK6kqNq6o0bELdDsrh8EA_Q7e3CyvljwCvR9mLXQu-X24="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "time_audit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "call_954440",
+                        "args": {},
+                        "name": "read_calendar"
+                      },
+                      "thought_signature": "EmAKXgFpFH0T2LxA7nya4ZuZq19Um_Tupixm4ud_7HIlFkHO0hpI8WbGUXkrJDyFIEpEdYuKKQ4ZeKl6ncIwZci3QTrxgpeP6mDNVU0KC5E2_GYxUrZl5j4gQSHdopW7RAE="
+                    },
+                    {
+                      "function_call": {
+                        "id": "call_954441",
+                        "args": {},
+                        "name": "calculate_time_breakdown"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                },
+                "usage_metadata": {
+                  "candidates_token_count": 23,
+                  "prompt_token_count": 598,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 598
+                    }
+                  ],
+                  "total_token_count": 621
+                },
+                "model_version": "gemini-3.5-flash-lite"
+              },
+              {
+                "author": "time_audit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "call_954440",
+                        "name": "read_calendar",
+                        "response": {
+                          "status": "success",
+                          "event_count": 29,
+                          "events": [
+                            {
+                              "date": "2026-10-12",
+                              "start": "08:00",
+                              "end": "09:30",
+                              "title": "Deep work: proposal writing",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "Pipeline review",
+                              "category": "Internal meeting",
+                              "attendees": 5,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Discovery call: Acme Logistics",
+                              "category": "Client",
+                              "attendees": 3,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Email and Slack catch-up",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "14:00",
+                              "end": "15:30",
+                              "title": "Status update with vendor",
+                              "category": "External meeting",
+                              "attendees": 4,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "15:30",
+                              "end": "17:00",
+                              "title": "Proposal edits",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "10:00",
+                              "end": "11:30",
+                              "title": "Weekly leadership sync",
+                              "category": "Internal meeting",
+                              "attendees": 8,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "11:30",
+                              "end": "12:00",
+                              "title": "Expense reports",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Client workshop prep",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "14:00",
+                              "end": "16:00",
+                              "title": "Client workshop: Northwind",
+                              "category": "Client",
+                              "attendees": 7,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 2.0
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "16:00",
+                              "end": "17:00",
+                              "title": "Invoice follow-ups",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "1:1 with ops lead",
+                              "category": "Internal meeting",
+                              "attendees": 2,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Vendor demo: scheduling tool",
+                              "category": "External meeting",
+                              "attendees": 5,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "13:00",
+                              "end": "14:30",
+                              "title": "CRM data cleanup",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "14:30",
+                              "end": "15:30",
+                              "title": "Coffee chat with prospect",
+                              "category": "Client",
+                              "attendees": 2,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "15:30",
+                              "end": "17:00",
+                              "title": "School pickup and family time",
+                              "category": "Family",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "10:00",
+                              "end": "12:00",
+                              "title": "Deep work: agent build",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 2.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Status update with vendor",
+                              "category": "External meeting",
+                              "attendees": 4,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "14:00",
+                              "end": "15:00",
+                              "title": "Proposal review: Acme Logistics",
+                              "category": "Client",
+                              "attendees": 3,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "15:00",
+                              "end": "16:30",
+                              "title": "Reporting for weekly metrics",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "All-hands",
+                              "category": "Internal meeting",
+                              "attendees": 25,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Email and Slack catch-up",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Networking call",
+                              "category": "External meeting",
+                              "attendees": 2,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "14:00",
+                              "end": "15:00",
+                              "title": "Week planning",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "function_response": {
+                        "id": "call_954441",
+                        "name": "calculate_time_breakdown",
+                        "response": {
+                          "status": "success",
+                          "total_hours": 31.5,
+                          "hours_by_category": {
+                            "Focus": 7.0,
+                            "Internal meeting": 7.0,
+                            "Client": 5.0,
+                            "Admin": 6.5,
+                            "External meeting": 4.5,
+                            "Family": 1.5
+                          },
+                          "meetings_without_agenda": {
+                            "Daily standup": 2.5,
+                            "Status update with vendor": 2.5,
+                            "Weekly leadership sync": 1.5,
+                            "Vendor demo: scheduling tool": 1.0,
+                            "Networking call": 1.0
+                          },
+                          "meeting_hours_without_agenda": 8.5,
+                          "recurring_hours": 16.5,
+                          "largest_time_blocks": {
+                            "Daily standup": 2.5,
+                            "Status update with vendor": 2.5,
+                            "Email and Slack catch-up": 2.0,
+                            "Client workshop: Northwind": 2.0,
+                            "Deep work: agent build": 2.0
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "time_audit_agent",
+                "usage_metadata": {
+                  "candidates_token_count": 314,
+                  "prompt_token_count": 2971,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 2971
+                    }
+                  ],
+                  "total_token_count": 3285
+                },
+                "model_version": "gemini-3.5-flash-lite"
+              }
+            ]
+          },
+          "creation_timestamp": 1792007244.491963
+        }
+      ],
+      "session_input": {
+        "app_name": "time_audit_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1792007272.340547
+    },
+    {
+      "eval_id": "How_many_hours_did_I_spend_in_meetings",
+      "conversation": [
+        {
+          "invocation_id": "e-f4bd2855-050b-4d8d-bf02-43c26e2f13ec",
+          "user_content": {
+            "parts": [
+              {
+                "text": "How many hours did I spend in meetings?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "You spent **19.0 hours** in meetings this week (calculated as 7.0 hours in Internal meetings, 5.0 hours in Client meetings, 4.5 hours in External meetings, and 2.5 hours in the \"Daily standup\" meeting which was categorized under Admin).",
+                "thought_signature": "EmAKXgFpFH0TpnOaAa0j_PrpJ_qOJJPy-0_NkaRkESCCWlcnqvDHLs13qmc8yAGd-31rgSf9OB6fEvPokr2AOZHbd1KRSlfity2igBTkfxeMhDOiro-CDhGnLM3oxswzy5I="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "time_audit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "call_966603",
+                        "args": {},
+                        "name": "calculate_time_breakdown"
+                      },
+                      "thought_signature": "EmAKXgFpFH0TyAy8yQ9U3hmgDwVuMJWbyo2Dx7NpiHcBf_jD5SUg2PYrpuo3Esi86xmLpW5ZP4Lyn2xs_bY0DA05Og_d-M8naG9Ur-bucLWH3GBLIJVFv09zSu1oWbge6Og="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "usage_metadata": {
+                  "candidates_token_count": 13,
+                  "prompt_token_count": 599,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 599
+                    }
+                  ],
+                  "total_token_count": 612
+                },
+                "model_version": "gemini-3.5-flash-lite"
+              },
+              {
+                "author": "time_audit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "call_966603",
+                        "name": "calculate_time_breakdown",
+                        "response": {
+                          "status": "success",
+                          "total_hours": 31.5,
+                          "hours_by_category": {
+                            "Focus": 7.0,
+                            "Internal meeting": 7.0,
+                            "Client": 5.0,
+                            "Admin": 6.5,
+                            "External meeting": 4.5,
+                            "Family": 1.5
+                          },
+                          "meetings_without_agenda": {
+                            "Daily standup": 2.5,
+                            "Status update with vendor": 2.5,
+                            "Weekly leadership sync": 1.5,
+                            "Vendor demo: scheduling tool": 1.0,
+                            "Networking call": 1.0
+                          },
+                          "meeting_hours_without_agenda": 8.5,
+                          "recurring_hours": 16.5,
+                          "largest_time_blocks": {
+                            "Daily standup": 2.5,
+                            "Status update with vendor": 2.5,
+                            "Email and Slack catch-up": 2.0,
+                            "Client workshop: Northwind": 2.0,
+                            "Deep work: agent build": 2.0
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "time_audit_agent",
+                "usage_metadata": {
+                  "candidates_token_count": 63,
+                  "prompt_token_count": 789,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 789
+                    }
+                  ],
+                  "total_token_count": 852
+                },
+                "model_version": "gemini-3.5-flash-lite"
+              }
+            ]
+          },
+          "creation_timestamp": 1792008431.467393
+        }
+      ],
+      "session_input": {
+        "app_name": "time_audit_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1792008468.44997
+    },
+    {
+      "eval_id": "What_should_I_delegate",
+      "conversation": [
+        {
+          "invocation_id": "e-72c5f1b6-946e-4a2a-8805-f4cd955e39dc",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What should I delegate?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "## No-agenda meetings\n* **Daily standup** (2.5 hours): Shorten (reduce to 15 minutes or rotate facilitators).\n* **Weekly leadership sync** (1.5 hours): Add an agenda (require a shared doc 24 hours prior).\n* **Status update with vendor** (2.5 hours): Delegate (hand off to operations lead or project manager).\n* **Vendor demo: scheduling tool** (1 hour): Delegate (have an associate evaluate and summarize).\n* **Networking call** (1 hour): Cut (decline low-leverage external coffee chats).\n\n## Cut\n* **Networking call**: 1.0 hour\n* **Total cut:** 1.0 hour\n\n## Delegate\n* **Status update with vendor**: 2.5 hours\n* **Vendor demo: scheduling tool**: 1.0 hour\n* **Expense reports**: 0.5 hours\n* **Invoice follow-ups**: 1.0 hour\n* **CRM data cleanup**: 1.5 hours\n* **Total delegate:** 2.5 + 1.0 + 0.5 + 1.0 + 1.5 = 6.5 hours\n\n## Batch\n* **Email and Slack catch-up**: 2.0 hours\n* **Reporting for weekly metrics**: 1.5 hours\n* **Estimated batch savings (25%)**: (2.0 + 1.5) * 0.25 = 0.875 hours\n\nTotal hours reclaimed per week: 1.0 + 6.5 + 0.875 = 8.375 hours",
+                "thought_signature": "EmAKXgFpFH0TvQ2CefQnxJOIYOUQPVsijAP064oPK1O3fc19obyX0Ab6G1MlftWZCLQ-OEU5zCdTGiizkzSDjO-hrJ5l6MhstLnVx9NT2qcox8NSbwVIfUxCHkVcbv7zv68="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "time_audit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "call_667557",
+                        "args": {},
+                        "name": "read_calendar"
+                      },
+                      "thought_signature": "EmAKXgFpFH0T18c9fhtchMaAmjV5XhLlwtbVmgVLBjeFI0DFnE8xMb3uyO_NPFtw1DyKxAYBl-K5geFU2oEIayFFyd2DNWGRE_-o2vq-8GXMPE0PLFUngRopi5foAUBvXNw="
+                    },
+                    {
+                      "function_call": {
+                        "id": "call_667558",
+                        "args": {},
+                        "name": "calculate_time_breakdown"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                },
+                "usage_metadata": {
+                  "candidates_token_count": 23,
+                  "prompt_token_count": 595,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 595
+                    }
+                  ],
+                  "total_token_count": 618
+                },
+                "model_version": "gemini-3.5-flash-lite"
+              },
+              {
+                "author": "time_audit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "call_667557",
+                        "name": "read_calendar",
+                        "response": {
+                          "status": "success",
+                          "event_count": 29,
+                          "events": [
+                            {
+                              "date": "2026-10-12",
+                              "start": "08:00",
+                              "end": "09:30",
+                              "title": "Deep work: proposal writing",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "Pipeline review",
+                              "category": "Internal meeting",
+                              "attendees": 5,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Discovery call: Acme Logistics",
+                              "category": "Client",
+                              "attendees": 3,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Email and Slack catch-up",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "14:00",
+                              "end": "15:30",
+                              "title": "Status update with vendor",
+                              "category": "External meeting",
+                              "attendees": 4,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "15:30",
+                              "end": "17:00",
+                              "title": "Proposal edits",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "10:00",
+                              "end": "11:30",
+                              "title": "Weekly leadership sync",
+                              "category": "Internal meeting",
+                              "attendees": 8,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "11:30",
+                              "end": "12:00",
+                              "title": "Expense reports",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Client workshop prep",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "14:00",
+                              "end": "16:00",
+                              "title": "Client workshop: Northwind",
+                              "category": "Client",
+                              "attendees": 7,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 2.0
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "16:00",
+                              "end": "17:00",
+                              "title": "Invoice follow-ups",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "1:1 with ops lead",
+                              "category": "Internal meeting",
+                              "attendees": 2,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Vendor demo: scheduling tool",
+                              "category": "External meeting",
+                              "attendees": 5,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "13:00",
+                              "end": "14:30",
+                              "title": "CRM data cleanup",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "14:30",
+                              "end": "15:30",
+                              "title": "Coffee chat with prospect",
+                              "category": "Client",
+                              "attendees": 2,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "15:30",
+                              "end": "17:00",
+                              "title": "School pickup and family time",
+                              "category": "Family",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "10:00",
+                              "end": "12:00",
+                              "title": "Deep work: agent build",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 2.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Status update with vendor",
+                              "category": "External meeting",
+                              "attendees": 4,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "14:00",
+                              "end": "15:00",
+                              "title": "Proposal review: Acme Logistics",
+                              "category": "Client",
+                              "attendees": 3,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "15:00",
+                              "end": "16:30",
+                              "title": "Reporting for weekly metrics",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "All-hands",
+                              "category": "Internal meeting",
+                              "attendees": 25,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Email and Slack catch-up",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Networking call",
+                              "category": "External meeting",
+                              "attendees": 2,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "14:00",
+                              "end": "15:00",
+                              "title": "Week planning",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "function_response": {
+                        "id": "call_667558",
+                        "name": "calculate_time_breakdown",
+                        "response": {
+                          "status": "success",
+                          "total_hours": 31.5,
+                          "hours_by_category": {
+                            "Focus": 7.0,
+                            "Internal meeting": 7.0,
+                            "Client": 5.0,
+                            "Admin": 6.5,
+                            "External meeting": 4.5,
+                            "Family": 1.5
+                          },
+                          "meetings_without_agenda": {
+                            "Daily standup": 2.5,
+                            "Status update with vendor": 2.5,
+                            "Weekly leadership sync": 1.5,
+                            "Vendor demo: scheduling tool": 1.0,
+                            "Networking call": 1.0
+                          },
+                          "meeting_hours_without_agenda": 8.5,
+                          "recurring_hours": 16.5,
+                          "largest_time_blocks": {
+                            "Daily standup": 2.5,
+                            "Status update with vendor": 2.5,
+                            "Email and Slack catch-up": 2.0,
+                            "Client workshop: Northwind": 2.0,
+                            "Deep work: agent build": 2.0
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "time_audit_agent",
+                "usage_metadata": {
+                  "candidates_token_count": 351,
+                  "prompt_token_count": 2968,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 2968
+                    }
+                  ],
+                  "total_token_count": 3319
+                },
+                "model_version": "gemini-3.5-flash-lite"
+              }
+            ]
+          },
+          "creation_timestamp": 1792008483.4537442
+        }
+      ],
+      "session_input": {
+        "app_name": "time_audit_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1792008553.191066
+    },
+    {
+      "eval_id": "Should_I_cancel_my_family_time_on_Wednesday",
+      "conversation": [
+        {
+          "invocation_id": "e-99dea02a-9844-40d2-ac6a-86ef688bb8f5",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Should I cancel my family time on Wednesday?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "No, you should never cancel your family time. \n\nPer the rules of time auditing, **never recommend cutting anything in the Focus or Family categories.** Your Wednesday family time (\"School pickup and family time\") is protected. Instead of cutting family time, you should reclaim hours by cutting unnecessary meetings, delegating admin tasks, and batching your communications.",
+                "thought_signature": "EmAKXgFpFH0TXSnrWVYrJK60w1hXFv5IyungkEuBuABe2IV-f8dP2Gp7tbxAFQ5g69d4JN6YzgFCZnJ2wOH1aWMm0sTZcDj9TQX6eGN0T5VtPRAhX0OMr568DIM8ZwzW6QE="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "time_audit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "call_812344",
+                        "args": {},
+                        "name": "read_calendar"
+                      },
+                      "thought_signature": "EmAKXgFpFH0T8EDUbiEStYODNIvMK0X6ZbK_xxkvF-sY1Jx4sIYePPhCf70BXybsrolwbNvce-o0wK5IoJu4HhegQGmhEu-18LWOrxWWAVFpjx75QKUGt1pLoDtYCInITac="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "usage_metadata": {
+                  "candidates_token_count": 10,
+                  "prompt_token_count": 599,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 599
+                    }
+                  ],
+                  "total_token_count": 609
+                },
+                "model_version": "gemini-3.5-flash-lite"
+              },
+              {
+                "author": "time_audit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "call_812344",
+                        "name": "read_calendar",
+                        "response": {
+                          "status": "success",
+                          "event_count": 29,
+                          "events": [
+                            {
+                              "date": "2026-10-12",
+                              "start": "08:00",
+                              "end": "09:30",
+                              "title": "Deep work: proposal writing",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "Pipeline review",
+                              "category": "Internal meeting",
+                              "attendees": 5,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Discovery call: Acme Logistics",
+                              "category": "Client",
+                              "attendees": 3,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Email and Slack catch-up",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "14:00",
+                              "end": "15:30",
+                              "title": "Status update with vendor",
+                              "category": "External meeting",
+                              "attendees": 4,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "15:30",
+                              "end": "17:00",
+                              "title": "Proposal edits",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "10:00",
+                              "end": "11:30",
+                              "title": "Weekly leadership sync",
+                              "category": "Internal meeting",
+                              "attendees": 8,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "11:30",
+                              "end": "12:00",
+                              "title": "Expense reports",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Client workshop prep",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "14:00",
+                              "end": "16:00",
+                              "title": "Client workshop: Northwind",
+                              "category": "Client",
+                              "attendees": 7,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 2.0
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "16:00",
+                              "end": "17:00",
+                              "title": "Invoice follow-ups",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "1:1 with ops lead",
+                              "category": "Internal meeting",
+                              "attendees": 2,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Vendor demo: scheduling tool",
+                              "category": "External meeting",
+                              "attendees": 5,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "13:00",
+                              "end": "14:30",
+                              "title": "CRM data cleanup",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "14:30",
+                              "end": "15:30",
+                              "title": "Coffee chat with prospect",
+                              "category": "Client",
+                              "attendees": 2,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "15:30",
+                              "end": "17:00",
+                              "title": "School pickup and family time",
+                              "category": "Family",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "10:00",
+                              "end": "12:00",
+                              "title": "Deep work: agent build",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 2.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Status update with vendor",
+                              "category": "External meeting",
+                              "attendees": 4,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "14:00",
+                              "end": "15:00",
+                              "title": "Proposal review: Acme Logistics",
+                              "category": "Client",
+                              "attendees": 3,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "15:00",
+                              "end": "16:30",
+                              "title": "Reporting for weekly metrics",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "All-hands",
+                              "category": "Internal meeting",
+                              "attendees": 25,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Email and Slack catch-up",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Networking call",
+                              "category": "External meeting",
+                              "attendees": 2,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "14:00",
+                              "end": "15:00",
+                              "title": "Week planning",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "time_audit_agent",
+                "usage_metadata": {
+                  "candidates_token_count": 71,
+                  "prompt_token_count": 2784,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 2784
+                    }
+                  ],
+                  "total_token_count": 2855
+                },
+                "model_version": "gemini-3.5-flash-lite"
+              }
+            ]
+          },
+          "creation_timestamp": 1792008565.1690571
+        }
+      ],
+      "session_input": {
+        "app_name": "time_audit_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1792008606.586476
+    },
+    {
+      "eval_id": "Can_I_cut_my_deep_work_blocks_to_free_up_time",
+      "conversation": [
+        {
+          "invocation_id": "e-80f847a7-ce01-416e-bff0-c83d79ad961a",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Can I cut my deep work blocks to free up time?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "No, you should **never recommend cutting anything in the Focus or Family categories**. Your Focus time (7.0 hours this week) is critical for execution and deep work. Instead, we can reclaim time by cutting, delegating, and batching your meetings and admin tasks.\n\n### No-agenda meetings\n*   **Daily standup** (2.5 hours): *Cut* – Reduce to async updates via Slack.\n*   **Networking call** (1.0 hour): *Cut* – Not mission-critical this week.\n*   **Status update with vendor** (2.5 hours): *Add an agenda* – Require a written status report before joining.\n*   **Vendor demo: scheduling tool** (1.0 hour): *Shorten* – Cap at 30 minutes with a strict feature checklist.\n*   **Weekly leadership sync** (1.5 hours): *Keep* – Essential cross-functional alignment.\n\n---\n\n### Cut\n*   **Networking call** (1.0 hour)\n*   **Daily standup** (2.5 hours)\n    *   *Total hours:* 1.0 + 2.5 = 3.5 hours\n    *   *Estimated hours reclaimed per week:* 3.5 hours\n\n### Delegate\n*   **Invoice follow-ups** (1.0 hour on 2026-10-13)\n*   **Expense reports** (0.5 hours on 2026-10-13)\n    *   *Total hours:* 1.0 + 0.5 = 1.5 hours\n    *   *Estimated hours reclaimed per week:* 1.5 hours\n\n### Batch\n*   **Email and Slack catch-up** (2.0 hours total across 2026-10-12 and 2026-10-16)\n*   **CRM data cleanup & Reporting for weekly metrics** (1.5 hours + 1.5 hours = 3.0 hours)\n    *   *Total batched hours:* 2.0 + 3.0 = 5.0 hours\n    *   *Estimated hours reclaimed per week (25% efficiency gain):* 1.25 hours\n\n---\n\nTotal hours reclaimed per week if they follow the plan: 6.25 hours",
+                "thought_signature": "EmAKXgFpFH0TWgSu1rGumpL0plOSxStUCMZ2BiUkxlwgBFE76aC03Apt9RsCf22eotpNu8gIWO7I_5aJKFpQ5DB9BsewTzRV6Pa9TuLoFK2ZBSUe92b2vzTp-P4PB0oXVus="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "time_audit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "call_1130032",
+                        "args": {},
+                        "name": "read_calendar"
+                      },
+                      "thought_signature": "EmAKXgFpFH0TrzNX68jmOjGM51USHFzzVYc5GNJZPlzF8gh-WgvXbCm1RYS8j3MDsa6tNpDhUHMJFjQFQFr4C8iGSLJMydycOvkM_AxCLFEC3zJmKuOw13WO6y1cQenFpjU="
+                    },
+                    {
+                      "function_call": {
+                        "id": "call_1130033",
+                        "args": {},
+                        "name": "calculate_time_breakdown"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                },
+                "usage_metadata": {
+                  "candidates_token_count": 23,
+                  "prompt_token_count": 602,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 602
+                    }
+                  ],
+                  "total_token_count": 625
+                },
+                "model_version": "gemini-3.5-flash-lite"
+              },
+              {
+                "author": "time_audit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "call_1130032",
+                        "name": "read_calendar",
+                        "response": {
+                          "status": "success",
+                          "event_count": 29,
+                          "events": [
+                            {
+                              "date": "2026-10-12",
+                              "start": "08:00",
+                              "end": "09:30",
+                              "title": "Deep work: proposal writing",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "Pipeline review",
+                              "category": "Internal meeting",
+                              "attendees": 5,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Discovery call: Acme Logistics",
+                              "category": "Client",
+                              "attendees": 3,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Email and Slack catch-up",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "14:00",
+                              "end": "15:30",
+                              "title": "Status update with vendor",
+                              "category": "External meeting",
+                              "attendees": 4,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "15:30",
+                              "end": "17:00",
+                              "title": "Proposal edits",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "10:00",
+                              "end": "11:30",
+                              "title": "Weekly leadership sync",
+                              "category": "Internal meeting",
+                              "attendees": 8,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "11:30",
+                              "end": "12:00",
+                              "title": "Expense reports",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Client workshop prep",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "14:00",
+                              "end": "16:00",
+                              "title": "Client workshop: Northwind",
+                              "category": "Client",
+                              "attendees": 7,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 2.0
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "16:00",
+                              "end": "17:00",
+                              "title": "Invoice follow-ups",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "1:1 with ops lead",
+                              "category": "Internal meeting",
+                              "attendees": 2,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Vendor demo: scheduling tool",
+                              "category": "External meeting",
+                              "attendees": 5,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "13:00",
+                              "end": "14:30",
+                              "title": "CRM data cleanup",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "14:30",
+                              "end": "15:30",
+                              "title": "Coffee chat with prospect",
+                              "category": "Client",
+                              "attendees": 2,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "15:30",
+                              "end": "17:00",
+                              "title": "School pickup and family time",
+                              "category": "Family",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "10:00",
+                              "end": "12:00",
+                              "title": "Deep work: agent build",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 2.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Status update with vendor",
+                              "category": "External meeting",
+                              "attendees": 4,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "14:00",
+                              "end": "15:00",
+                              "title": "Proposal review: Acme Logistics",
+                              "category": "Client",
+                              "attendees": 3,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "15:00",
+                              "end": "16:30",
+                              "title": "Reporting for weekly metrics",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "All-hands",
+                              "category": "Internal meeting",
+                              "attendees": 25,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Email and Slack catch-up",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Networking call",
+                              "category": "External meeting",
+                              "attendees": 2,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "14:00",
+                              "end": "15:00",
+                              "title": "Week planning",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "function_response": {
+                        "id": "call_1130033",
+                        "name": "calculate_time_breakdown",
+                        "response": {
+                          "status": "success",
+                          "total_hours": 31.5,
+                          "hours_by_category": {
+                            "Focus": 7.0,
+                            "Internal meeting": 7.0,
+                            "Client": 5.0,
+                            "Admin": 6.5,
+                            "External meeting": 4.5,
+                            "Family": 1.5
+                          },
+                          "meetings_without_agenda": {
+                            "Daily standup": 2.5,
+                            "Status update with vendor": 2.5,
+                            "Weekly leadership sync": 1.5,
+                            "Vendor demo: scheduling tool": 1.0,
+                            "Networking call": 1.0
+                          },
+                          "meeting_hours_without_agenda": 8.5,
+                          "recurring_hours": 16.5,
+                          "largest_time_blocks": {
+                            "Daily standup": 2.5,
+                            "Status update with vendor": 2.5,
+                            "Email and Slack catch-up": 2.0,
+                            "Client workshop: Northwind": 2.0,
+                            "Deep work: agent build": 2.0
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "time_audit_agent",
+                "usage_metadata": {
+                  "candidates_token_count": 507,
+                  "prompt_token_count": 2975,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 2975
+                    }
+                  ],
+                  "total_token_count": 3482
+                },
+                "model_version": "gemini-3.5-flash-lite"
+              }
+            ]
+          },
+          "creation_timestamp": 1792008638.0261362
+        }
+      ],
+      "session_input": {
+        "app_name": "time_audit_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1792009048.199302
+    },
+    {
+      "eval_id": "What_should_I_do_about_my_no-agenda_meetings",
+      "conversation": [
+        {
+          "invocation_id": "e-eefbbcfe-50c6-43a9-bbb8-bd9936a9945d",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What should I do about my no-agenda meetings?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "### No-agenda meetings\n\nHere are all the meetings without an agenda and their hours (totaling 8.5 hours across Daily standup: 2.5, Status update with vendor: 2.5, Weekly leadership sync: 1.5, Vendor demo: scheduling tool: 1, Networking call: 1):\n\n* **Daily standup (2.5 hours):** Shorten to 15 minutes or Keep (quick alignment).\n* **Status update with vendor (2.5 hours):** Add an agenda or Cut.\n* **Weekly leadership sync (1.5 hours):** Add an agenda.\n* **Vendor demo: scheduling tool (1 hour):** Cut.\n* **Networking call (1 hour):** Delegate or Cut.\n\n***\n\n### Cut\n* **Vendor demo: scheduling tool (1 hour)** — Cut entirely.\n* **Networking call (1 hour)** — Cut.\n\n### Delegate\n* **Status update with vendor (2.5 hours)** — Delegate attendance to a team lead.\n\n### Batch\n* **Admin tasks (6.5 hours across Email and Slack catch-up, Expense reports, Invoice follow-ups, CRM data cleanup, and Reporting for weekly metrics)** — Batch into designated morning and afternoon blocks. Estimated time saved (25% of 6.5 hours): 1.625 hours per week.\n\nTotal hours reclaimed per week: 1 + 1 + 2.5 + 1.625 = 6.125 hours per week.",
+                "thought_signature": "EmAKXgFpFH0TNwh7VqLPAqOEUoLtOS5PUbFCr09eFhf1hBn-ebwDpLZi224GcemNqTrlQy9LDcVI2tCQG-BGLhXCjU5UgKch0c9Mpg2LbwBgG05gNMUd32RLpkqLuaWVjUc="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "time_audit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "call_1006703",
+                        "args": {},
+                        "name": "read_calendar"
+                      },
+                      "thought_signature": "EmAKXgFpFH0T4NvZqcf1B4ptdljZfm_R297YTiyfVeinvmRxx4Pq-qClst4XNQ4zMQ4taYg41dupKTsRaHC9wvuo49eeWGV2l5AfoC_sdDQsfQnl29p2dYYel483LDdlofA="
+                    },
+                    {
+                      "function_call": {
+                        "id": "call_1006704",
+                        "args": {},
+                        "name": "calculate_time_breakdown"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                },
+                "usage_metadata": {
+                  "candidates_token_count": 23,
+                  "prompt_token_count": 601,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 601
+                    }
+                  ],
+                  "total_token_count": 624
+                },
+                "model_version": "gemini-3.5-flash-lite"
+              },
+              {
+                "author": "time_audit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "call_1006703",
+                        "name": "read_calendar",
+                        "response": {
+                          "status": "success",
+                          "event_count": 29,
+                          "events": [
+                            {
+                              "date": "2026-10-12",
+                              "start": "08:00",
+                              "end": "09:30",
+                              "title": "Deep work: proposal writing",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "Pipeline review",
+                              "category": "Internal meeting",
+                              "attendees": 5,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Discovery call: Acme Logistics",
+                              "category": "Client",
+                              "attendees": 3,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Email and Slack catch-up",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "14:00",
+                              "end": "15:30",
+                              "title": "Status update with vendor",
+                              "category": "External meeting",
+                              "attendees": 4,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "15:30",
+                              "end": "17:00",
+                              "title": "Proposal edits",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "10:00",
+                              "end": "11:30",
+                              "title": "Weekly leadership sync",
+                              "category": "Internal meeting",
+                              "attendees": 8,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "11:30",
+                              "end": "12:00",
+                              "title": "Expense reports",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Client workshop prep",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "14:00",
+                              "end": "16:00",
+                              "title": "Client workshop: Northwind",
+                              "category": "Client",
+                              "attendees": 7,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 2.0
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "16:00",
+                              "end": "17:00",
+                              "title": "Invoice follow-ups",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "1:1 with ops lead",
+                              "category": "Internal meeting",
+                              "attendees": 2,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Vendor demo: scheduling tool",
+                              "category": "External meeting",
+                              "attendees": 5,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "13:00",
+                              "end": "14:30",
+                              "title": "CRM data cleanup",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "14:30",
+                              "end": "15:30",
+                              "title": "Coffee chat with prospect",
+                              "category": "Client",
+                              "attendees": 2,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "15:30",
+                              "end": "17:00",
+                              "title": "School pickup and family time",
+                              "category": "Family",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "10:00",
+                              "end": "12:00",
+                              "title": "Deep work: agent build",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 2.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Status update with vendor",
+                              "category": "External meeting",
+                              "attendees": 4,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "14:00",
+                              "end": "15:00",
+                              "title": "Proposal review: Acme Logistics",
+                              "category": "Client",
+                              "attendees": 3,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "15:00",
+                              "end": "16:30",
+                              "title": "Reporting for weekly metrics",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "All-hands",
+                              "category": "Internal meeting",
+                              "attendees": 25,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Email and Slack catch-up",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Networking call",
+                              "category": "External meeting",
+                              "attendees": 2,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "14:00",
+                              "end": "15:00",
+                              "title": "Week planning",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "function_response": {
+                        "id": "call_1006704",
+                        "name": "calculate_time_breakdown",
+                        "response": {
+                          "status": "success",
+                          "total_hours": 31.5,
+                          "hours_by_category": {
+                            "Focus": 7.0,
+                            "Internal meeting": 7.0,
+                            "Client": 5.0,
+                            "Admin": 6.5,
+                            "External meeting": 4.5,
+                            "Family": 1.5
+                          },
+                          "meetings_without_agenda": {
+                            "Daily standup": 2.5,
+                            "Status update with vendor": 2.5,
+                            "Weekly leadership sync": 1.5,
+                            "Vendor demo: scheduling tool": 1.0,
+                            "Networking call": 1.0
+                          },
+                          "meeting_hours_without_agenda": 8.5,
+                          "recurring_hours": 16.5,
+                          "largest_time_blocks": {
+                            "Daily standup": 2.5,
+                            "Status update with vendor": 2.5,
+                            "Email and Slack catch-up": 2.0,
+                            "Client workshop: Northwind": 2.0,
+                            "Deep work: agent build": 2.0
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "time_audit_agent",
+                "usage_metadata": {
+                  "candidates_token_count": 325,
+                  "prompt_token_count": 2974,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 2974
+                    }
+                  ],
+                  "total_token_count": 3299
+                },
+                "model_version": "gemini-3.5-flash-lite"
+              }
+            ]
+          },
+          "creation_timestamp": 1792009081.2086809
+        }
+      ],
+      "session_input": {
+        "app_name": "time_audit_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1792009153.0308611
+    },
+    {
+      "eval_id": "How_much_time_could_I_get_back_each_week",
+      "conversation": [
+        {
+          "invocation_id": "e-4c49f59a-8c48-4262-b1bc-6f8f593d0965",
+          "user_content": {
+            "parts": [
+              {
+                "text": "How much time could I get back each week?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "### No-agenda meetings\n* Daily standup: 2.5 hours — Action: Shorten to 15 minutes (or Keep as a 5-minute async update; assigned Keep: critical alignment).\n* Weekly leadership sync: 1.5 hours — Action: Add an agenda.\n* Status update with vendor: 2.5 hours — Action: Cut (replace with async status reports).\n* Vendor demo: scheduling tool: 1.0 hour — Action: Cut (not a current priority).\n* Networking call: 1.0 hour — Action: Cut (low ROI).\n\n***\n\n### Cut\n* **Status update with vendor**: 2.5 hours\n* **Vendor demo: scheduling tool**: 1.0 hour\n* **Networking call**: 1.0 hour\n* *Estimated hours reclaimed:* 2.5 + 1.0 + 1.0 = **4.5 hours**\n\n### Delegate\n* **Invoice follow-ups**: 1.0 hour (Admin)\n* **Expense reports**: 0.5 hours (Admin)\n* *Estimated hours reclaimed:* 1.0 + 0.5 = **1.5 hours**\n\n### Batch\n* **Email and Slack catch-up**: 2.0 hours\n* **Admin reporting & CRM cleanup** (CRM data cleanup: 1.5 hours + Reporting for weekly metrics: 1.5 hours): 3.0 hours\n* *Estimated hours reclaimed (25% of batched hours):* 2.0 + 3.0 = 5.0 hours batched × 0.25 = **1.25 hours**\n\n***\n\nTotal hours reclaimed per week: 4.5 + 1.5 + 1.25 = 7.25 hours",
+                "thought_signature": "EmAKXgFpFH0TlqQweWqjedozrq_eIoNOb0zx5Cb6-LfTlA-mZmLXCoXoXbJCqTDMGn0bQtUGWVtl6xruJGcCQ1i6tFupYjPRpq3REVFic7iLmyj0Hod1w8QGgvmiR48ILlI="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "time_audit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "call_1005635",
+                        "args": {},
+                        "name": "read_calendar"
+                      },
+                      "thought_signature": "EmAKXgFpFH0TI0k8npjm5VCPn25uhezSpaCOqGVDQpfB3TVJrIJ4QmHXcusz32M1AYokTtYbF4alVKAkOFKnPugBXsA8rZrj1LzQhe2UeZoINQoTzJwwLAtrTr99-Ug08Fc="
+                    },
+                    {
+                      "function_call": {
+                        "id": "call_1005636",
+                        "args": {},
+                        "name": "calculate_time_breakdown"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                },
+                "usage_metadata": {
+                  "candidates_token_count": 23,
+                  "prompt_token_count": 600,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 600
+                    }
+                  ],
+                  "total_token_count": 623
+                },
+                "model_version": "gemini-3.5-flash-lite"
+              },
+              {
+                "author": "time_audit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "call_1005635",
+                        "name": "read_calendar",
+                        "response": {
+                          "status": "success",
+                          "event_count": 29,
+                          "events": [
+                            {
+                              "date": "2026-10-12",
+                              "start": "08:00",
+                              "end": "09:30",
+                              "title": "Deep work: proposal writing",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "Pipeline review",
+                              "category": "Internal meeting",
+                              "attendees": 5,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Discovery call: Acme Logistics",
+                              "category": "Client",
+                              "attendees": 3,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Email and Slack catch-up",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "14:00",
+                              "end": "15:30",
+                              "title": "Status update with vendor",
+                              "category": "External meeting",
+                              "attendees": 4,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "15:30",
+                              "end": "17:00",
+                              "title": "Proposal edits",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "10:00",
+                              "end": "11:30",
+                              "title": "Weekly leadership sync",
+                              "category": "Internal meeting",
+                              "attendees": 8,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "11:30",
+                              "end": "12:00",
+                              "title": "Expense reports",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Client workshop prep",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "14:00",
+                              "end": "16:00",
+                              "title": "Client workshop: Northwind",
+                              "category": "Client",
+                              "attendees": 7,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 2.0
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "16:00",
+                              "end": "17:00",
+                              "title": "Invoice follow-ups",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "1:1 with ops lead",
+                              "category": "Internal meeting",
+                              "attendees": 2,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Vendor demo: scheduling tool",
+                              "category": "External meeting",
+                              "attendees": 5,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "13:00",
+                              "end": "14:30",
+                              "title": "CRM data cleanup",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "14:30",
+                              "end": "15:30",
+                              "title": "Coffee chat with prospect",
+                              "category": "Client",
+                              "attendees": 2,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "15:30",
+                              "end": "17:00",
+                              "title": "School pickup and family time",
+                              "category": "Family",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "10:00",
+                              "end": "12:00",
+                              "title": "Deep work: agent build",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 2.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Status update with vendor",
+                              "category": "External meeting",
+                              "attendees": 4,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "14:00",
+                              "end": "15:00",
+                              "title": "Proposal review: Acme Logistics",
+                              "category": "Client",
+                              "attendees": 3,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "15:00",
+                              "end": "16:30",
+                              "title": "Reporting for weekly metrics",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "All-hands",
+                              "category": "Internal meeting",
+                              "attendees": 25,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Email and Slack catch-up",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Networking call",
+                              "category": "External meeting",
+                              "attendees": 2,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "14:00",
+                              "end": "15:00",
+                              "title": "Week planning",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "function_response": {
+                        "id": "call_1005636",
+                        "name": "calculate_time_breakdown",
+                        "response": {
+                          "status": "success",
+                          "total_hours": 31.5,
+                          "hours_by_category": {
+                            "Focus": 7.0,
+                            "Internal meeting": 7.0,
+                            "Client": 5.0,
+                            "Admin": 6.5,
+                            "External meeting": 4.5,
+                            "Family": 1.5
+                          },
+                          "meetings_without_agenda": {
+                            "Daily standup": 2.5,
+                            "Status update with vendor": 2.5,
+                            "Weekly leadership sync": 1.5,
+                            "Vendor demo: scheduling tool": 1.0,
+                            "Networking call": 1.0
+                          },
+                          "meeting_hours_without_agenda": 8.5,
+                          "recurring_hours": 16.5,
+                          "largest_time_blocks": {
+                            "Daily standup": 2.5,
+                            "Status update with vendor": 2.5,
+                            "Email and Slack catch-up": 2.0,
+                            "Client workshop: Northwind": 2.0,
+                            "Deep work: agent build": 2.0
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "time_audit_agent",
+                "usage_metadata": {
+                  "candidates_token_count": 385,
+                  "prompt_token_count": 2973,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 2973
+                    }
+                  ],
+                  "total_token_count": 3358
+                },
+                "model_version": "gemini-3.5-flash-lite"
+              }
+            ]
+          },
+          "creation_timestamp": 1792009198.785961
+        }
+      ],
+      "session_input": {
+        "app_name": "time_audit_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1792009241.8564548
+    },
+    {
+      "eval_id": "Give_me_3_things_to_batch",
+      "conversation": [
+        {
+          "invocation_id": "e-a3b0a24c-8da8-4c17-b840-6066a143f744",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Give me 3 things to batch."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "### No-agenda meetings\n- Daily standup (2.5 hours): Shorten to 15 minutes.\n- Status update with vendor (2.5 hours): Add an agenda.\n- Weekly leadership sync (1.5 hours): Add an agenda.\n- Vendor demo: scheduling tool (1.0 hour): Cut.\n- Networking call (1.0 hour): Cut.\n\n### Cut\n- Vendor demo: scheduling tool (1.0 hour)\n- Networking call (1.0 hour)\n- *Estimated hours reclaimed:* 2.0 hours per week\n\n### Delegate\n- Expense reports (0.5 hours)\n- CRM data cleanup (1.5 hours)\n- Invoice follow-ups (1.0 hour)\n- *Estimated hours reclaimed:* 3.0 hours per week\n\n### Batch\n1. **Admin and Reporting Tasks** (Email and Slack catch-up, Expense reports, Invoice follow-ups, CRM data cleanup, Reporting for weekly metrics): Total 6.5 Admin hours.\n2. **External Vendor and Status Updates** (Status update with vendor): Total 2.5 hours.\n3. **Internal Standups** (Daily standup): Total 2.5 hours.\n\n*Estimated hours reclaimed (25% of batched hours [6.5 + 2.5 + 2.5 = 11.5 hours]):* 2.875 hours per week.\n\nTotal hours reclaimed per week: 7.875 hours",
+                "thought_signature": "EmAKXgFpFH0TThhC-gZCmUJrVm2A3me7CJlZuGD2eh4pnbGBiOV-0-Sbr8xfRh2bth-HOGAerNfgC9hPIPd4BuV_uO9k9D03gMBVks800qJ3YUhxTTrdOLgFP0BnWSkBWmM="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "time_audit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "call_854535",
+                        "args": {},
+                        "name": "read_calendar"
+                      },
+                      "thought_signature": "EmAKXgFpFH0TPBbbKlsNdbW8axLfqOCJ-lDj0OxWgIr6VvCjpqy4FBbBpYVYhlv8UHhjWkZJ8t1zqmkiqbt2LyU70CX2mTdITcKjoOMdnI6jLPbDokdg65KQyY2Qn5Zryt0="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "usage_metadata": {
+                  "candidates_token_count": 10,
+                  "prompt_token_count": 598,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 598
+                    }
+                  ],
+                  "total_token_count": 608
+                },
+                "model_version": "gemini-3.5-flash-lite"
+              },
+              {
+                "author": "time_audit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "call_854535",
+                        "name": "read_calendar",
+                        "response": {
+                          "status": "success",
+                          "event_count": 29,
+                          "events": [
+                            {
+                              "date": "2026-10-12",
+                              "start": "08:00",
+                              "end": "09:30",
+                              "title": "Deep work: proposal writing",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "Pipeline review",
+                              "category": "Internal meeting",
+                              "attendees": 5,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Discovery call: Acme Logistics",
+                              "category": "Client",
+                              "attendees": 3,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Email and Slack catch-up",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "14:00",
+                              "end": "15:30",
+                              "title": "Status update with vendor",
+                              "category": "External meeting",
+                              "attendees": 4,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "15:30",
+                              "end": "17:00",
+                              "title": "Proposal edits",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "10:00",
+                              "end": "11:30",
+                              "title": "Weekly leadership sync",
+                              "category": "Internal meeting",
+                              "attendees": 8,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "11:30",
+                              "end": "12:00",
+                              "title": "Expense reports",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Client workshop prep",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "14:00",
+                              "end": "16:00",
+                              "title": "Client workshop: Northwind",
+                              "category": "Client",
+                              "attendees": 7,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 2.0
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "16:00",
+                              "end": "17:00",
+                              "title": "Invoice follow-ups",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "1:1 with ops lead",
+                              "category": "Internal meeting",
+                              "attendees": 2,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Vendor demo: scheduling tool",
+                              "category": "External meeting",
+                              "attendees": 5,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "13:00",
+                              "end": "14:30",
+                              "title": "CRM data cleanup",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "14:30",
+                              "end": "15:30",
+                              "title": "Coffee chat with prospect",
+                              "category": "Client",
+                              "attendees": 2,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "15:30",
+                              "end": "17:00",
+                              "title": "School pickup and family time",
+                              "category": "Family",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "10:00",
+                              "end": "12:00",
+                              "title": "Deep work: agent build",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 2.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Status update with vendor",
+                              "category": "External meeting",
+                              "attendees": 4,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "14:00",
+                              "end": "15:00",
+                              "title": "Proposal review: Acme Logistics",
+                              "category": "Client",
+                              "attendees": 3,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "15:00",
+                              "end": "16:30",
+                              "title": "Reporting for weekly metrics",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "All-hands",
+                              "category": "Internal meeting",
+                              "attendees": 25,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Email and Slack catch-up",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Networking call",
+                              "category": "External meeting",
+                              "attendees": 2,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "14:00",
+                              "end": "15:00",
+                              "title": "Week planning",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "time_audit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "call_638832",
+                        "args": {},
+                        "name": "calculate_time_breakdown"
+                      },
+                      "thought_signature": "EmAKXgFpFH0TqKgGcPJPZT3DEUSBATl3AynQ9VMcGDWTn9rn-lV4FAALpOAeODzrEi97hUVPp0y6NbL7ZN8bkAGxfGs1bWp7KkKyVJWNxfreW3p3KdzOsDzTlGPdXpecXSY="
+                    }
+                  ],
+                  "role": "model"
+                },
+                "usage_metadata": {
+                  "candidates_token_count": 13,
+                  "prompt_token_count": 2783,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 2783
+                    }
+                  ],
+                  "total_token_count": 2796
+                },
+                "model_version": "gemini-3.5-flash-lite"
+              },
+              {
+                "author": "time_audit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "call_638832",
+                        "name": "calculate_time_breakdown",
+                        "response": {
+                          "status": "success",
+                          "total_hours": 31.5,
+                          "hours_by_category": {
+                            "Focus": 7.0,
+                            "Internal meeting": 7.0,
+                            "Client": 5.0,
+                            "Admin": 6.5,
+                            "External meeting": 4.5,
+                            "Family": 1.5
+                          },
+                          "meetings_without_agenda": {
+                            "Daily standup": 2.5,
+                            "Status update with vendor": 2.5,
+                            "Weekly leadership sync": 1.5,
+                            "Vendor demo: scheduling tool": 1.0,
+                            "Networking call": 1.0
+                          },
+                          "meeting_hours_without_agenda": 8.5,
+                          "recurring_hours": 16.5,
+                          "largest_time_blocks": {
+                            "Daily standup": 2.5,
+                            "Status update with vendor": 2.5,
+                            "Email and Slack catch-up": 2.0,
+                            "Client workshop: Northwind": 2.0,
+                            "Deep work: agent build": 2.0
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "time_audit_agent",
+                "usage_metadata": {
+                  "candidates_token_count": 320,
+                  "prompt_token_count": 2973,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 2973
+                    }
+                  ],
+                  "total_token_count": 3293
+                },
+                "model_version": "gemini-3.5-flash-lite"
+              }
+            ]
+          },
+          "creation_timestamp": 1792009256.4184
+        }
+      ],
+      "session_input": {
+        "app_name": "time_audit_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1792009419.551969
+    },
+    {
+      "eval_id": "Summarize_my_week_in_one_sentence",
+      "conversation": [
+        {
+          "invocation_id": "e-7b6a4c19-4f17-49aa-a344-8cd25604e064",
+          "user_content": {
+            "parts": [
+              {
+                "text": "\tSummarize my week in one sentence."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Your week consisted of 31.5 total hours, heavily split between 14 hours of meetings without agendas, 7 hours of focus work, and 6.5 hours of admin tasks.",
+                "thought_signature": "EmAKXgFpFH0TRfK3DhFAL5SVqbpZSdnpRpEgPDkla9ZpTr4a1deRmBshwL2ZmRPuaG5WkxLYrkfAVhyyqIdwErGWAreXvCX6U3gWrQQZ6J_Zwmw-qFyjxIiE4J2UgJQdPVY="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "time_audit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "call_915842",
+                        "args": {},
+                        "name": "read_calendar"
+                      },
+                      "thought_signature": "EmAKXgFpFH0Tn_X7bEzII60-2x1E5NyQUrv_eDhJuma9rc6vmTRKoWSXLS7eMh-5AXO3ym22eLWCZ2c2g-wR-FFmoi0ZdYoGcfznCAC8JXyLyq5EuBeafOwQtpW-9-r5ci4="
+                    },
+                    {
+                      "function_call": {
+                        "id": "call_915843",
+                        "args": {},
+                        "name": "calculate_time_breakdown"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                },
+                "usage_metadata": {
+                  "candidates_token_count": 23,
+                  "prompt_token_count": 599,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 599
+                    }
+                  ],
+                  "total_token_count": 622
+                },
+                "model_version": "gemini-3.5-flash-lite"
+              },
+              {
+                "author": "time_audit_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "call_915842",
+                        "name": "read_calendar",
+                        "response": {
+                          "status": "success",
+                          "event_count": 29,
+                          "events": [
+                            {
+                              "date": "2026-10-12",
+                              "start": "08:00",
+                              "end": "09:30",
+                              "title": "Deep work: proposal writing",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "Pipeline review",
+                              "category": "Internal meeting",
+                              "attendees": 5,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Discovery call: Acme Logistics",
+                              "category": "Client",
+                              "attendees": 3,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Email and Slack catch-up",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "14:00",
+                              "end": "15:30",
+                              "title": "Status update with vendor",
+                              "category": "External meeting",
+                              "attendees": 4,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-12",
+                              "start": "15:30",
+                              "end": "17:00",
+                              "title": "Proposal edits",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "10:00",
+                              "end": "11:30",
+                              "title": "Weekly leadership sync",
+                              "category": "Internal meeting",
+                              "attendees": 8,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "11:30",
+                              "end": "12:00",
+                              "title": "Expense reports",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Client workshop prep",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "14:00",
+                              "end": "16:00",
+                              "title": "Client workshop: Northwind",
+                              "category": "Client",
+                              "attendees": 7,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 2.0
+                            },
+                            {
+                              "date": "2026-10-13",
+                              "start": "16:00",
+                              "end": "17:00",
+                              "title": "Invoice follow-ups",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "1:1 with ops lead",
+                              "category": "Internal meeting",
+                              "attendees": 2,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Vendor demo: scheduling tool",
+                              "category": "External meeting",
+                              "attendees": 5,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "13:00",
+                              "end": "14:30",
+                              "title": "CRM data cleanup",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "14:30",
+                              "end": "15:30",
+                              "title": "Coffee chat with prospect",
+                              "category": "Client",
+                              "attendees": 2,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-14",
+                              "start": "15:30",
+                              "end": "17:00",
+                              "title": "School pickup and family time",
+                              "category": "Family",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "10:00",
+                              "end": "12:00",
+                              "title": "Deep work: agent build",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 2.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Status update with vendor",
+                              "category": "External meeting",
+                              "attendees": 4,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "14:00",
+                              "end": "15:00",
+                              "title": "Proposal review: Acme Logistics",
+                              "category": "Client",
+                              "attendees": 3,
+                              "has_agenda": "yes",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-15",
+                              "start": "15:00",
+                              "end": "16:30",
+                              "title": "Reporting for weekly metrics",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.5
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "09:30",
+                              "end": "10:00",
+                              "title": "Daily standup",
+                              "category": "Internal meeting",
+                              "attendees": 6,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 0.5
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "10:00",
+                              "end": "11:00",
+                              "title": "All-hands",
+                              "category": "Internal meeting",
+                              "attendees": 25,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "11:00",
+                              "end": "12:00",
+                              "title": "Email and Slack catch-up",
+                              "category": "Admin",
+                              "attendees": 1,
+                              "has_agenda": "no",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "13:00",
+                              "end": "14:00",
+                              "title": "Networking call",
+                              "category": "External meeting",
+                              "attendees": 2,
+                              "has_agenda": "no",
+                              "recurring": "no",
+                              "hours": 1.0
+                            },
+                            {
+                              "date": "2026-10-16",
+                              "start": "14:00",
+                              "end": "15:00",
+                              "title": "Week planning",
+                              "category": "Focus",
+                              "attendees": 1,
+                              "has_agenda": "yes",
+                              "recurring": "yes",
+                              "hours": 1.0
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "function_response": {
+                        "id": "call_915843",
+                        "name": "calculate_time_breakdown",
+                        "response": {
+                          "status": "success",
+                          "total_hours": 31.5,
+                          "hours_by_category": {
+                            "Focus": 7.0,
+                            "Internal meeting": 7.0,
+                            "Client": 5.0,
+                            "Admin": 6.5,
+                            "External meeting": 4.5,
+                            "Family": 1.5
+                          },
+                          "meetings_without_agenda": {
+                            "Daily standup": 2.5,
+                            "Status update with vendor": 2.5,
+                            "Weekly leadership sync": 1.5,
+                            "Vendor demo: scheduling tool": 1.0,
+                            "Networking call": 1.0
+                          },
+                          "meeting_hours_without_agenda": 8.5,
+                          "recurring_hours": 16.5,
+                          "largest_time_blocks": {
+                            "Daily standup": 2.5,
+                            "Status update with vendor": 2.5,
+                            "Email and Slack catch-up": 2.0,
+                            "Client workshop: Northwind": 2.0,
+                            "Deep work: agent build": 2.0
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "time_audit_agent",
+                "usage_metadata": {
+                  "candidates_token_count": 41,
+                  "prompt_token_count": 2972,
+                  "prompt_tokens_details": [
+                    {
+                      "modality": "TEXT",
+                      "token_count": 2972
+                    }
+                  ],
+                  "total_token_count": 3013
+                },
+                "model_version": "gemini-3.5-flash-lite"
+              }
+            ]
+          },
+          "creation_timestamp": 1792011939.983606
+        }
+      ],
+      "session_input": {
+        "app_name": "time_audit_agent",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1792011958.8780658
+    }
+  ],
+  "creation_timestamp": 1791928220.34723
+}

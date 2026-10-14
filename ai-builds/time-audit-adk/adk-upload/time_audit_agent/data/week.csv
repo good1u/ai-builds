@@ -1,0 +1,30 @@
+date,start,end,title,category,attendees,has_agenda,recurring
+2026-10-12,08:00,09:30,Deep work: proposal writing,Focus,1,yes,no
+2026-10-12,09:30,10:00,Daily standup,Internal meeting,6,no,yes
+2026-10-12,10:00,11:00,Pipeline review,Internal meeting,5,yes,yes
+2026-10-12,11:00,12:00,Discovery call: Acme Logistics,Client,3,yes,no
+2026-10-12,13:00,14:00,Email and Slack catch-up,Admin,1,no,yes
+2026-10-12,14:00,15:30,Status update with vendor,External meeting,4,no,yes
+2026-10-12,15:30,17:00,Proposal edits,Focus,1,yes,no
+2026-10-13,09:30,10:00,Daily standup,Internal meeting,6,no,yes
+2026-10-13,10:00,11:30,Weekly leadership sync,Internal meeting,8,no,yes
+2026-10-13,11:30,12:00,Expense reports,Admin,1,no,no
+2026-10-13,13:00,14:00,Client workshop prep,Focus,1,yes,no
+2026-10-13,14:00,16:00,Client workshop: Northwind,Client,7,yes,no
+2026-10-13,16:00,17:00,Invoice follow-ups,Admin,1,no,yes
+2026-10-14,09:30,10:00,Daily standup,Internal meeting,6,no,yes
+2026-10-14,10:00,11:00,1:1 with ops lead,Internal meeting,2,yes,yes
+2026-10-14,11:00,12:00,Vendor demo: scheduling tool,External meeting,5,no,no
+2026-10-14,13:00,14:30,CRM data cleanup,Admin,1,no,no
+2026-10-14,14:30,15:30,Coffee chat with prospect,Client,2,no,no
+2026-10-14,15:30,17:00,School pickup and family time,Family,1,no,yes
+2026-10-15,09:30,10:00,Daily standup,Internal meeting,6,no,yes
+2026-10-15,10:00,12:00,Deep work: agent build,Focus,1,yes,no
+2026-10-15,13:00,14:00,Status update with vendor,External meeting,4,no,yes
+2026-10-15,14:00,15:00,Proposal review: Acme Logistics,Client,3,yes,no
+2026-10-15,15:00,16:30,Reporting for weekly metrics,Admin,1,no,yes
+2026-10-16,09:30,10:00,Daily standup,Internal meeting,6,no,yes
+2026-10-16,10:00,11:00,All-hands,Internal meeting,25,yes,yes
+2026-10-16,11:00,12:00,Email and Slack catch-up,Admin,1,no,yes
+2026-10-16,13:00,14:00,Networking call,External meeting,2,no,no
+2026-10-16,14:00,15:00,Week planning,Focus,1,yes,yes
