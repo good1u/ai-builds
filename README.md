@@ -10,7 +10,7 @@ I spent 15 years building on Salesforce as a developer, architect and practice d
 |---|---|---|---|
 | [Time Audit agent (Google ADK)](./ai-builds/time-audit-adk) | Reviews a week of calendar data and recommends what to cut, delegate or batch. A human approves before anything is saved. | Gemini, Google ADK, Python | Working, with logging and evals |
 | [Time Audit agent (Claude)](./ai-builds/time-audit-claude) | periodically checks in to see what I'm working on, the overall sentiment and creates a daily report | Claude | Working demo |
-| [Time Audit app (Lovable)](./ai-builds/time-audit-lovable) | walks user through time audit, compares to ideal week and provides dashboard | Lovable | Working demo |
+| [Time Audit app (Lovable)](./ai-builds/time-audit-lovable) | walks user through time audit, compares to ideal week and provides dashboard | Lovable, [Supabase / other] | Working demo |
 | [Sales support agent (Salesforce)](./ai-builds/sales-support-agent) | CRM Record Summary Agent | Agentforce, Prompt Builder, Flow | Working demo |
 
 ## How I build
