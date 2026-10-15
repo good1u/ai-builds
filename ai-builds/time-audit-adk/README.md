@@ -45,6 +45,9 @@ User → ADK agent (Gemini) → tool: read_calendar            (loads the week f
 | 9 | Give me 3 things to batch | Groups admin and email blocks |
 | 10 | Summarize my week in one sentence | One sentence with a real total |
 
+<img width="492" height="753" alt="2026-10-14_15-23-28" src="https://github.com/user-attachments/assets/c5b9271c-9efb-47a6-abef-213378593102" />
+
+
 ### What testing caught
 
 | # | Problem | Root cause | Fix |
