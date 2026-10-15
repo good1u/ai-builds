@@ -30,7 +30,7 @@ User → ADK agent (Gemini) → tool: read_calendar            (loads the week f
 - **Test set:** 10 prompts run against a fixed sample week (29 events, 31.5 hours), saved in `time_audit_agent/time_audit_evals.evalset.json`
 - **What counts as a pass:** the agent calls the right tools in the right order (tool trajectory 1.0) and its answer is close to the approved answer (response match 0.5, kept loose because wording varies run to run)
 - **Result:** 9/10 passed. The one failure: asked "How many hours did I spend in meetings?", the agent double counted client calls as external meetings, because nothing defined what a "meeting" was.
-- **Fix:** the tool now calculates `meeting_hours` (internal + external) and `client_hours` in code, and a new rule tells the agent never to add client time into meeting totals. The next eval run will confirm it.
+- **Fix:** update the tool to calculate `meeting_hours` (internal + external) and `client_hours` in code, and a new rule tells the agent never to add client time into meeting totals. The next eval run will confirm it.
 
 | # | Prompt | Passes if... |
 |---|---|---|
@@ -95,6 +95,7 @@ The pattern behind all 4: when the model has to search, count or interpret on it
 - Connect to Google Calendar through MCP instead of a CSV
 - Load run logs into BigQuery and track adoption and time saved
 - Expand the test set to 50 cases across several sample weeks
+- Add a baseline ideal week and show delta
 
 ## Built with
-Python (written with AI assistance in Antigravity), Google ADK, Gemini.
+Python (written with AI assistance in Antigravity and Claude), Google ADK, Gemini.
