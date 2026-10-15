@@ -1,6 +1,6 @@
 # Time Audit agent (Claude)
 
-**[One sentence: who it's for and what it does.]**
+**Periodically checks in to ask what you're working on and how you're feeling about it and Provides a daily summary report.**
 
 ▶ [2-minute demo video](link)
 
