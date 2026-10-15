@@ -1,4 +1,4 @@
-# AI builds by Jonathan Osgood
+# AI builds by Jonathan
 
 I find manual workflows that eat people's time and turn them into AI agents and automations.
 15 years building on Salesforce, now building agents with Claude, Gemini and Agentforce.
