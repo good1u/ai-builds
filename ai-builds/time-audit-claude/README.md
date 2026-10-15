@@ -10,6 +10,9 @@ Most people get to the end of the day or week and realize they didnt do what the
 2. Weekly goals are captured 
 3. A weekly summary is produced
 
+<img width="810" height="342" alt="2026-10-15_13-23-37" src="https://github.com/user-attachments/assets/a732f5b9-9b5d-4b27-85d9-47627d6dfaf7" />
+<img width="1037" height="1940" alt="2026-10-15_13-25-49" src="https://github.com/user-attachments/assets/8078111e-254f-48ee-9948-1df01c64e836" />
+
 ## How it's built
 - **Tools:** Claude
 - **Model:** Sonnet 5
