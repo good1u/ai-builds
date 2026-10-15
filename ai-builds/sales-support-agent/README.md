@@ -1,17 +1,15 @@
 # Sales support agent (Salesforce)
 
-**[One sentence: who it's for and what it does.]**
+**an AI Agent designed to automate common business tasks and assist users**
 
-▶ [2-minute demo video](link)
+
 
 ## The problem
 [2-3 sentences. The manual workflow before. Who did it, how often, how long it took, what went wrong.]
 Example: "Founders I talk to know they're busy but can't say where the week went. Doing a time audit by hand takes 2-3 hours of spreadsheet work, so nobody does it."
 
 ## What it does
-1. [Step the user takes]
-2. [What the AI does]
-3. [What the user gets back]
+The Employee Bot 2000 is an AI Agent designed to automate common business tasks and assist users by searching knowledge articles and interacting with Salesforce CRM data. It can answer questions about company policies, products, and procedures, and manage CRM records like opportunities, contacts, and activities. The agent routes user requests to specialized sub-agents for general FAQs, off-topic conversations, ambiguous questions, or general CRM interactions. It welcomes users and provides error messages when issues occur.
 
 ## How it's built
 - **Tools:** [Lovable / Claude / Agentforce / etc.]
