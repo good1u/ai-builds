@@ -37,4 +37,4 @@ Each of these is now a saved test case. Details are in the [Time Audit agent REA
 
 Founder of [TimeWealth Co.](https://timewealthco.com), where I help growing companies plan and build AI, CRM and automation programs. Certified Salesforce Application Architect. Based in Boulder, Colorado.
 
-[LinkedIn](https://www.linkedin.com/in/jonathan-osgood-2b467932) · jonathanosgood@gmail.com
+[LinkedIn](https://www.linkedin.com/in/jonathan-osgood-2b467932) · jonathan@timewealthco.com
