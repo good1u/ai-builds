@@ -2,7 +2,7 @@
 
 **An agent that reviews a week of calendar and task data and recommends what to cut, delegate or batch, with an approval step before it changes anything.**
 
-▶ [2-minute demo video](link)
+▶ [2-minute demo video](https://www.loom.com/share/7fb55e92032f49788ee9279cedbbc7ef)
 
 ## Why I rebuilt it
 I first built this as a Claude agent and a Lovable app. I rebuilt it on Google's Agent Development Kit (ADK) with Gemini to add the things a production version needs: logging, a human approval step, and an evaluation set.
