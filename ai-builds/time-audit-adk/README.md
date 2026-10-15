@@ -4,8 +4,6 @@
 
 ▶ [2-minute demo video](https://www.loom.com/share/7fb55e92032f49788ee9279cedbbc7ef)
 
-<div style="position: relative; padding-bottom: 55.42857142857143%; height: 0;"><iframe src="https://www.loom.com/embed/7fb55e92032f49788ee9279cedbbc7ef" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-
 ## Why I rebuilt it
 I first built this as a Claude agent and a Lovable app. I rebuilt it on Google's Agent Development Kit (ADK) with Gemini to add the things a production version needs: logging, a human approval step, and an evaluation set.
 
