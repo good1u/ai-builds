@@ -1,4 +1,4 @@
-# AI builds by Jonathan Osgood
+# AI builds by Jonathan
 
 I find the manual work that eats people's weeks and turn it into AI agents and automations.
 
