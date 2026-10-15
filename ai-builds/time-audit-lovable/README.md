@@ -1,8 +1,8 @@
 # Time Audit app (Lovable)
 
-**[One sentence: who it's for and what it does.]**
+**Surveys a user on where their 168 hours per week went, compares against goal week and provides chart.**
 
-▶ [2-minute demo video](link)
+
 
 ## The problem
 [2-3 sentences. The manual workflow before. Who did it, how often, how long it took, what went wrong.]
