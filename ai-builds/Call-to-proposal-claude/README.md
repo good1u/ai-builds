@@ -2,6 +2,8 @@
 
 **Builds a polished SOW / Proposal based on call transcripts.**
 
+▶ [2-minute demo video]((https://www.loom.com/share/da96f6c1ce484bc0b90cb979df084f6f))
+
 ## The problem
 Creating proposals is time consuming and often require synthesizing lots of information from notes, calls, pricing sheets. 
 
