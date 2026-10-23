@@ -1,0 +1,6 @@
+# Salesforce cannot deploy these
+**/.eslintrc.json
+**/jsconfig.json
+package.xml
+.sfdx
+.sf

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Executive_Sponsorship__c</fullName>
+    <label>Executive sponsorship</label>
+    <description>Executive sponsorship score, 1 to 5.</description>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <precision>1</precision>
+    <scale>0</scale>
+</CustomField>

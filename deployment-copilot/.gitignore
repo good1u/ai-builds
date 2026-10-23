@@ -1,0 +1,7 @@
+.sf/
+.sfdx/
+.vscode/
+node_modules/
+*.log
+.env
+tests/agent/results/
