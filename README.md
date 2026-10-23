@@ -1,17 +1,18 @@
 # AI builds by Jonathan
 
-I find the manual work that eats people's weeks and turn it into AI agents and automations.
+I find manual workflows that eat people's time and turn them into AI agents and automations. 15 years building on Salesforce, now building agents with Claude, Gemini and Agentforce.
 
-I spent 15 years building on Salesforce as a developer, architect and practice director. Now I build agents with Gemini, Claude and Agentforce. This repo is where those builds live, including what broke and how I fixed it.
+This repo is where those builds live, including what broke and how I fixed it.
 
 ## The builds
 
-| Build | What it does | Built with | Status |
+| Build | What it does | Tools | Demo |
 |---|---|---|---|
-| [Time Audit agent (Google ADK)](./ai-builds/time-audit-adk) | Reviews a week of calendar data and recommends what to cut, delegate or batch. A human approves before anything is saved. | Gemini, Google ADK, Python | Working, with logging and evals |
-| [Time Audit agent (Claude)](./ai-builds/time-audit-claude) | periodically checks in to see what I'm working on, the overall sentiment and creates a daily report | Claude, [Projects / MCP / skills] | Working demo |
-| [Time Audit app (Lovable)](./ai-builds/time-audit-lovable) | walks user through time audit, compares to ideal week and provides dashboard | Lovable, [Supabase / other] | Working demo |
-| [Sales support agent (Salesforce)](./ai-builds/sales-support-agent) | CRM Record Summary Agent | Agentforce, Prompt Builder, Flow | Working demo |
+| [Time Audit agent (Google ADK)](./time-audit-adk) | Reviews a week of calendar and task data and recommends what to cut, delegate or batch. A human approves before anything is saved. | Gemini, Google ADK, Python | [2-min video](https://www.loom.com/share/7fb55e92032f49788ee9279cedbbc7ef) |
+| [Time Audit agent (Claude)](./time-audit-claude) | Periodically checks in to ask what you're working on and how you're feeling about it, then provides a daily summary report. | Claude, scheduled tasks, Artifacts | |
+| [Time Audit app (Lovable)](./time-audit-lovable) | Surveys a user on where their 168 hours per week went, compares against a goal week and provides a chart. | Lovable, Claude, Supabase | |
+| [Sales support agent (Salesforce)](./sales-support-agent) | An AI agent that answers questions from knowledge articles and manages CRM records like opportunities, contacts and activities. | Agentforce, Prompt Builder, Flow | |
+| [Call to proposal agent (Claude)](./Call-to-proposal-claude) | Creates a polished proposal from call transcripts in minutes. | Claude, RAG, Google Docs Connector | [2-min video](https://www.loom.com/share/da96f6c1ce484bc0b90cb979df084f6f) |
 
 ## How I build
 
@@ -31,7 +32,7 @@ The Time Audit agent looked fine on its first run. Checking it against its own r
 | 2 | Flagged meetings but gave no action for them | New rule: every flagged meeting gets Cut, Shorten, Add an agenda or Keep |
 | 2 | Counted batched time as fully saved, inflating the total to 9.5 hours | Batching now counts as an estimated 25% saving. The total dropped to a realistic 5.9 hours |
 
-Each of these is now a saved test case. Details are in the [Time Audit agent README](./ai-builds/time-audit-adk).
+Each of these is now a saved test case. Details are in the [Time Audit agent README](./time-audit-adk).
 
 ## About me
 
