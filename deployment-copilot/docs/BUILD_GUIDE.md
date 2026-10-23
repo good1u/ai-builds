@@ -89,7 +89,7 @@ sf agent validate authoring-bundle --api-name Deployment_Copilot
 sf agent preview --authoring-bundle Deployment_Copilot
 ```
 
-`preview` runs with simulated actions by default. That's fine for checking routing. Once routing works, switch to real actions against your seed data:
+Simulated actions invent their outputs, so they hide exactly the type and binding bugs you're looking for. In your dev org with the synthetic data, go straight to real actions:
 
 ```bash
 sf agent preview --authoring-bundle Deployment_Copilot --use-live-actions
@@ -160,7 +160,11 @@ These are the places I'd look first.
 
 | Symptom | Where to look |
 |---|---|
-| `validate` rejects a parameter type | In `Deployment_Copilot.agent`, `integer` and `string` for IDs are my best reading of the docs. Try `number` for scores or `id` for IDs. |
+| `preview` crashes with `Cannot read properties of undefined (reading 'replace')` | A CLI bug when the script has no `default_agent_user`, which employee agents don't need. Fixed in `@salesforce/agents` 2.3.2. Run `sf plugins install @salesforce/plugin-agent@latest`. |
+| `validate` passes but `preview` rejects a parameter type | `validate` only checks syntax. Preview checks types against Apex. An Apex `Id` input needs `object` with `complex_data_type_name: "lightning__recordIdType"`, and an Apex `Integer` output needs `object` with `"lightning__integerType"`, even though the docs say to use `string` for IDs. |
+| An action runs with `{}` as its input | A variable set from a null output is `None`, not `""`, so `!= ""` is true. Guard with `is not None and != ""`. |
+| The agent answers without calling an action it was told to call | An action offered as a tool is optional, and the model can skip it. If the answer depends on it, `run` it in the reasoning logic instead. |
+| `publish` overwrites local files | Publish retrieves the agent and its dependencies back into the project (Apex classes, the prompt template, and new `aiAgents/` and `aiAgentDefinitionVersions/` folders). Diff before you commit. |
 | `validate` complains about an action's outputs | Every action needs an `outputs:` block, and the names must match the Apex `@InvocableVariable` fields exactly, case included. |
 | Prompt template action not found | The template API name must be exactly `Draft_Deployment_Roadmap`, and the inputs must be named `engagementSummary` and `constraints`. |
 | Prompt template deploy "succeeds" but the output doesn't change | Published versions can't be changed. Bump the `_N` suffix on `activeVersionIdentifier` and `versionIdentifier`, then redeploy. |
@@ -169,4 +173,4 @@ These are the places I'd look first.
 | An agent turn ignores `available when` | Check that the variable was really set. Look at the preview trace for `engagement_id`. |
 | Mixed DML error in tests | `TestDataFactory.strategist()` wraps setup DML in `System.runAs`. Keep it that way. |
 | Agent forgets the engagement on a new topic | Variables are agent-wide, but the router runs each turn. If it misroutes follow-ups, add a transition between subagents. |
-| Roadmap saved when you said "wait" | Tighten the `save_roadmap` instructions, then add that exact phrase to the test suite. |
+| Roadmap saved before the user saw it | Tools are re-evaluated within a turn, so a save can follow a draft in the same turn. `save_roadmap` is gated on `draft_presented`, which only `after_reasoning` sets, so a save always needs a later user message. |

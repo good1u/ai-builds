@@ -28,6 +28,14 @@ variables:
         description: "Plain-text summary of the current engagement, returned by find_engagement."
     roadmap_draft: mutable string = ""
         description: "The latest roadmap draft returned by the roadmap prompt template. Saved only after approval."
+    draft_presented: mutable boolean = False
+        description: "True once the turn that produced roadmap_draft has ended, so the user has seen it. Set only by Agent Script logic."
+    adoption_risk: mutable string = ""
+        description: "Risk level from get_adoption: Low, Medium, High, or Unknown."
+    adoption_summary: mutable string = ""
+        description: "Plain-text adoption snapshot from get_adoption, reported to the user as is."
+    adoption_flags: mutable string = ""
+        description: "Risk flags from get_adoption, or None."
 
 start_agent agent_router:
     description: "Routes each request to readiness scoring, roadmap drafting, adoption tracking, or a polite decline."
@@ -53,8 +61,8 @@ subagent readiness_assessment:
     reasoning:
         instructions: ->
             | You score AI readiness for one engagement at a time. You never choose a score yourself. The user gives every rating.
-            if @variables.engagement_id == "":
-                | No engagement is selected yet. Ask for the engagement or customer name and use find_engagement. If several match, list them and ask which one.
+            if @variables.engagement_id is None or @variables.engagement_id == "":
+                | No engagement is selected yet. If the user's message names an engagement or customer, even partly (for example "Fernhollow"), call find_engagement with that name right away. Only ask for a name if the message has none. If several match, list them and ask which one.
             else:
                 | Current engagement: {!@variables.engagement_summary}
                 | Collect one rating from 1 to 5 for each of the six dimensions. Ask for all six in one message, with the anchors below. 1 means nothing is in place, 3 means partly in place, 5 means production quality.
@@ -74,7 +82,7 @@ subagent readiness_assessment:
                 set @variables.engagement_summary = @outputs.summary
             score_readiness: @actions.score_readiness
                 description: "Score the six readiness ratings and save the assessment."
-                available when @variables.engagement_id != ""
+                available when @variables.engagement_id is not None and @variables.engagement_id != ""
                 with engagementId = @variables.engagement_id
                 with dataReadiness = ...
                 with useCaseClarity = ...
@@ -90,14 +98,16 @@ subagent readiness_assessment:
                 engagementName: string
                     is_required: True
             outputs:
-                matchCount: number
+                matchCount: object
+                    complex_data_type_name: "lightning__integerType"
                 engagementId: string
                 summary: string
         score_readiness:
             description: "Scores six readiness dimensions, saves the assessment, and returns the weighted score, band, and gaps."
             target: "apex://ScoreReadinessAction"
             inputs:
-                engagementId: string
+                engagementId: object
+                    complex_data_type_name: "lightning__recordIdType"
                     is_required: True
                 dataReadiness: integer
                     is_required: True
@@ -123,15 +133,20 @@ subagent roadmap_drafting:
     reasoning:
         instructions: ->
             | You draft roadmaps for one engagement at a time.
-            if @variables.engagement_id == "":
-                | No engagement is selected yet. Ask for the engagement or customer name and use find_engagement. If several match, list them and ask which one.
+            if @variables.engagement_id is None or @variables.engagement_id == "":
+                | No engagement is selected yet. If the user's message names an engagement or customer, even partly (for example "Fernhollow"), call find_engagement with that name right away. Only ask for a name if the message has none. If several match, list them and ask which one.
             else:
                 | Current engagement: {!@variables.engagement_summary}
-                | If the user wants a roadmap and there is no draft yet, ask once for any constraints, such as a go-live date, a team size, or systems that cannot change. Then call draft_roadmap.
-            if @variables.roadmap_draft != "":
-                | This is the current DRAFT. Show it to the user in full, then ask whether to save it.
+                | If the user wants a roadmap and there is no draft yet, call draft_roadmap. Pass any constraints the user already gave, such as a go-live date, a team size, or systems that cannot change. Only ask for constraints if the user gave none and you have not asked yet.
+            # A draft made this turn has not been seen yet. save_roadmap stays hidden until
+            # after_reasoning marks it presented, so a save always needs a later user message.
+            if @variables.roadmap_draft is not None and @variables.roadmap_draft != "" and @variables.draft_presented == False:
+                | This is a new DRAFT the user has not seen. Show it to the user in full, word for word, then ask whether to save it. Do not say it is saved.
                 | {!@variables.roadmap_draft}
-                | Only call save_roadmap when the user's latest message clearly approves saving this exact draft. Set approvedByUser to true only in that case. If the user asks for changes, call draft_roadmap again with the changes as constraints. If the user has not answered, do not save.
+            if @variables.roadmap_draft is not None and @variables.roadmap_draft != "" and @variables.draft_presented == True:
+                | The user has already seen this DRAFT:
+                | {!@variables.roadmap_draft}
+                | Only call save_roadmap when the user's latest message clearly approves saving this exact draft. Set approvedByUser to true only in that case. If the user asks for any change, even while approving, call draft_roadmap again with the changes as constraints and do not save. If the user has not answered, do not save.
         actions:
             find_engagement: @actions.find_engagement
                 description: "Find an engagement by name or customer name."
@@ -140,16 +155,21 @@ subagent roadmap_drafting:
                 set @variables.engagement_summary = @outputs.summary
             draft_roadmap: @actions.draft_roadmap
                 description: "Draft a phased roadmap for the current engagement."
-                available when @variables.engagement_id != ""
+                available when @variables.engagement_id is not None and @variables.engagement_id != ""
                 with "Input:engagementSummary" = @variables.engagement_summary
                 with "Input:constraints" = ...
                 set @variables.roadmap_draft = @outputs.promptResponse
+                set @variables.draft_presented = False
             save_roadmap: @actions.save_roadmap
                 description: "Save the approved roadmap draft on the engagement."
-                available when @variables.roadmap_draft != ""
+                available when @variables.roadmap_draft is not None and @variables.roadmap_draft != "" and @variables.draft_presented == True
                 with engagementId = @variables.engagement_id
                 with roadmapText = @variables.roadmap_draft
                 with approvedByUser = ...
+                set @variables.draft_presented = False
+    after_reasoning: ->
+        if @variables.roadmap_draft is not None and @variables.roadmap_draft != "":
+            set @variables.draft_presented = True
     actions:
         find_engagement:
             description: "Finds an engagement by name or customer account name."
@@ -158,7 +178,8 @@ subagent roadmap_drafting:
                 engagementName: string
                     is_required: True
             outputs:
-                matchCount: number
+                matchCount: object
+                    complex_data_type_name: "lightning__integerType"
                 engagementId: string
                 summary: string
         draft_roadmap:
@@ -173,7 +194,8 @@ subagent roadmap_drafting:
             description: "Saves the roadmap on the engagement. Refuses unless the user approved it."
             target: "apex://RoadmapWriterAction"
             inputs:
-                engagementId: string
+                engagementId: object
+                    complex_data_type_name: "lightning__recordIdType"
                     is_required: True
                 roadmapText: string
                     is_required: True
@@ -188,23 +210,32 @@ subagent adoption_tracking:
     reasoning:
         instructions: ->
             | You report adoption numbers for one engagement at a time. You never estimate or fill gaps.
-            if @variables.engagement_id == "":
-                | No engagement is selected yet. Ask for the engagement or customer name and use find_engagement. If several match, list them and ask which one.
+            if @variables.engagement_id is None or @variables.engagement_id == "":
+                | No engagement is selected yet. If the user's message names an engagement or customer, even partly (for example "Fernhollow"), call find_engagement with that name right away. Only ask for a name if the message has none. If several match, list them and ask which one.
             else:
+                # Run in logic, not offered as a tool: in preview the model skipped an
+                # optional get_adoption call and answered "no data" with data on file.
+                run @actions.get_adoption
+                    with engagementId = @variables.engagement_id
+                    set @variables.adoption_risk = @outputs.riskLevel
+                    set @variables.adoption_summary = @outputs.summary
+                    set @variables.adoption_flags = @outputs.flags
                 | Current engagement: {!@variables.engagement_summary}
-                | Call get_adoption and report the numbers exactly as returned: adoption rate, containment rate, credits, change since last week, and risk level.
-                | If risk is Medium or High, list the flags, then suggest a few questions the strategist could ask the customer. Label them as suggestions.
-                | If risk is Unknown, say no adoption data has been logged yet. Do not guess.
+                | Adoption snapshot from Apex: {!@variables.adoption_summary}
+                | Risk level: {!@variables.adoption_risk}. Flags: {!@variables.adoption_flags}.
+                | Report the snapshot exactly as given: adoption rate, containment rate, credits, change since last week, and risk level. Do not recompute, round, or add numbers.
+            # Agent Script has no nested ifs, so these sit at the top level and test engagement_id themselves.
+            # Ids are checked for None too: find_engagement returns a null id when several engagements match.
+            if @variables.engagement_id is not None and @variables.engagement_id != "" and (@variables.adoption_risk == "Medium" or @variables.adoption_risk == "High"):
+                | List the flags, then suggest a few questions the strategist could ask the customer. Label them as suggestions.
+            if @variables.engagement_id is not None and @variables.engagement_id != "" and @variables.adoption_risk == "Unknown":
+                | There is no adoption data to report. Tell the user what the snapshot says, and do not guess at any number.
         actions:
             find_engagement: @actions.find_engagement
                 description: "Find an engagement by name or customer name."
                 with engagementName = ...
                 set @variables.engagement_id = @outputs.engagementId
                 set @variables.engagement_summary = @outputs.summary
-            get_adoption: @actions.get_adoption
-                description: "Get the latest adoption snapshot and risk level."
-                available when @variables.engagement_id != ""
-                with engagementId = @variables.engagement_id
     actions:
         find_engagement:
             description: "Finds an engagement by name or customer account name."
@@ -213,14 +244,16 @@ subagent adoption_tracking:
                 engagementName: string
                     is_required: True
             outputs:
-                matchCount: number
+                matchCount: object
+                    complex_data_type_name: "lightning__integerType"
                 engagementId: string
                 summary: string
         get_adoption:
             description: "Returns the latest weekly adoption rate, containment rate, credits, week-over-week change, and risk level."
             target: "apex://AdoptionSnapshotAction"
             inputs:
-                engagementId: string
+                engagementId: object
+                    complex_data_type_name: "lightning__recordIdType"
                     is_required: True
             outputs:
                 riskLevel: string

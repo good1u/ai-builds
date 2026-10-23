@@ -2,7 +2,7 @@
 
 **An Agentforce agent that helps a deployment strategist run a 12-week customer AI engagement: it scores AI readiness, drafts a roadmap, and watches adoption.**
 
-> **Status:** the data model, Apex, unit tests, and prompt template are deployed and tested in a Developer Edition org. The agent itself (Agent Script, preview, publish, agent test suite) is written but hasn't been validated yet. That's next.
+> **Status:** built and running in a Developer Edition org. The agent is published and active, and 6 test conversations pass against real Apex and real data. The automated agent test suite is next.
 
 ## The problem
 
@@ -32,7 +32,9 @@ Anything else gets a polite decline.
 |---|---|
 | The LLM never does the math | `ReadinessCalculator`, `AdoptionCalculator` (unit tested) |
 | Scores must be 1 to 5, all 6 present | `ReadinessCalculator.validate` |
+| A roadmap saves only after the user has seen it | The save tool doesn't exist until a turn after the draft. Agent Script sets `draft_presented` in `after_reasoning`, once the reply with the draft has gone out. |
 | A roadmap saves only after approval | `RoadmapWriterAction` refuses unless `approvedByUser` is true |
+| Adoption numbers always come from Apex | `get_adoption` runs in the script logic every time, so the model can't skip it and guess |
 | The saved text is the text the user saw | The agent binds the saved text to its draft variable, so the model can't reword it between "show" and "save" |
 | Engagement names resolve to IDs in code | `EngagementContextAction` |
 | Record contents are data, not instructions | System instructions plus a prompt-injection test case |
@@ -52,9 +54,12 @@ sf org assign permset --name Deployment_Copilot_Access
 sf apex run --file scripts/apex/seed-data.apex
 sf apex run test --test-level RunLocalTests --code-coverage --wait 10
 sf project deploy start -m GenAiPromptTemplate
+sf project deploy start -m AiAuthoringBundle
+sf agent publish authoring-bundle --api-name Deployment_Copilot
+sf agent activate --api-name Deployment_Copilot
 ```
 
-The full walkthrough, including the agent steps, is in [docs/BUILD_GUIDE.md](docs/BUILD_GUIDE.md).
+`sf agent preview` needs `@salesforce/plugin-agent` 2.2.3 or later (`sf plugins install @salesforce/plugin-agent@latest`). Older versions crash on employee agents. The full walkthrough is in [docs/BUILD_GUIDE.md](docs/BUILD_GUIDE.md).
 
 ```
 force-app/main/default/
@@ -78,7 +83,7 @@ docs/                   Architecture and build guide
 
 ## What I learned
 
-Every bug so far showed up somewhere I wasn't looking. 4 of them:
+Every bug so far showed up somewhere I wasn't looking. 7 of them:
 
 | Where | What went wrong | Fix |
 |---|---|---|
@@ -86,6 +91,11 @@ Every bug so far showed up somewhere I wasn't looking. 4 of them:
 | Roadmap prompt | Every draft restarted the engagement at week 1, mid-engagement. The prompt asked for "the engagement dates in the facts," and the facts had no dates, only "Week 2 of 12." | Rewrote the week rules against the format the Apex actually sends. |
 | Roadmap prompt | Every draft ended with "Thank you for your time and responsiveness." The agent saves the draft word for word, so that line would have landed on the record. | A rule to end on the last open question, with the reason in the prompt. |
 | Deploying the prompt fix | The deploy said **Succeeded**, and nothing changed. Published template versions can't be edited, and the Metadata API doesn't complain when you try. | Bump the version number on every change, and retrieve after deploying to confirm. |
+| Adoption check | Asked how Fernhollow was doing, the agent said "no adoption data has been logged yet." There were 6 weeks of data. The trace showed it had the tool and the instruction to call it, and skipped the call. | `get_adoption` runs in the script logic now. The "no data" wording only appears when Apex returns Unknown. |
+| Roadmap save | The user said "looks good, save it" to a question about constraints. In one turn the agent drafted a roadmap, saved it, and said "saved." Nobody saw it. The approval check lived in Apex, but the model filled in the approval flag. | The save tool only appears a turn after the draft, so saving always needs another message from the user. |
+| Ambiguous names | "Alder Ridge" matches 2 engagements, so the ID came back null. The script checked `!= ""`, null passed, and an action ran with no input. | Every check now tests for null too. |
+
+The adoption check and the roadmap save are the reason this project exists. Both times the model ignored a clear instruction, and both fixes moved the rule out of the prompt and into the script.
 
 Two of my own fixes broke things too. Telling the model to "number them as engagement weeks" pushed 2 of 5 drafts past the word limit. Then the example I added, `"Weeks 3-5"`, made 4 of 5 drafts start at week 3, because the model copied the number. Placeholder letters fixed it.
 
