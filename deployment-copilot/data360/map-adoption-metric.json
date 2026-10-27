@@ -1,0 +1,38 @@
+{
+  "sourceEntityDeveloperName": "Adoption_Metric_Home__dll",
+  "targetEntityDeveloperName": "Adoption_Metric__dlm",
+  "fieldMapping": [
+    {
+      "sourceFieldDeveloperName": "Id__c",
+      "targetFieldDeveloperName": "Id__c"
+    },
+    {
+      "sourceFieldDeveloperName": "Engagement_c__c",
+      "targetFieldDeveloperName": "Engagement_Id__c"
+    },
+    {
+      "sourceFieldDeveloperName": "Week_Ending_c__c",
+      "targetFieldDeveloperName": "Week_Ending__c"
+    },
+    {
+      "sourceFieldDeveloperName": "Eligible_Users_c__c",
+      "targetFieldDeveloperName": "Eligible_Users__c"
+    },
+    {
+      "sourceFieldDeveloperName": "Active_Users_c__c",
+      "targetFieldDeveloperName": "Active_Users__c"
+    },
+    {
+      "sourceFieldDeveloperName": "Conversations_c__c",
+      "targetFieldDeveloperName": "Conversations__c"
+    },
+    {
+      "sourceFieldDeveloperName": "Resolved_By_Agent_c__c",
+      "targetFieldDeveloperName": "Resolved_By_Agent__c"
+    },
+    {
+      "sourceFieldDeveloperName": "Credits_Consumed_c__c",
+      "targetFieldDeveloperName": "Credits_Consumed__c"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "name": "Copilot_Engagement",
+  "label": "Copilot Engagement",
+  "category": "Other",
+  "dataSpaceName": "default",
+  "fields": [
+    {
+      "name": "Id",
+      "label": "Id",
+      "dataType": "Text",
+      "isPrimaryKey": true
+    },
+    {
+      "name": "Name",
+      "label": "Name",
+      "dataType": "Text",
+      "isPrimaryKey": false
+    },
+    {
+      "name": "Account_Id",
+      "label": "Account Id",
+      "dataType": "Text",
+      "isPrimaryKey": false
+    },
+    {
+      "name": "Stage",
+      "label": "Stage",
+      "dataType": "Text",
+      "isPrimaryKey": false
+    },
+    {
+      "name": "Status",
+      "label": "Status",
+      "dataType": "Text",
+      "isPrimaryKey": false
+    },
+    {
+      "name": "Start_Date",
+      "label": "Start Date",
+      "dataType": "Date",
+      "isPrimaryKey": false
+    },
+    {
+      "name": "Target_End_Date",
+      "label": "Target End Date",
+      "dataType": "Date",
+      "isPrimaryKey": false
+    }
+  ]
+}

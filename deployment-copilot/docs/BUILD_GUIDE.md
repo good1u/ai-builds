@@ -146,13 +146,14 @@ Remove the HTML comment markers around that section in the README when it has re
 
 This is the milestone that closes the biggest remaining gap against the job posting, so do it if you have another weekend.
 
-1. Create a Salesforce CRM data stream for `Adoption_Metric__c` and `Engagement__c` in Data 360.
-2. Map them to data model objects.
-3. Build a calculated insight for weekly adoption rate and containment rate.
-4. Ground the agent on it, so `adoption_tracking` reads from Data 360 instead of Apex SOQL.
-5. Add a README section that compares the two approaches and says which one you'd pick for a customer and why.
+1. In Setup, search for **Data Cloud Setup** and click **Get Started**. Provisioning takes a while. You're done when `sf api request rest /services/data/v68.0/ssot/data-spaces -o copilot` lists a `default` data space.
+2. Deploy the connector permission set: `sf project deploy start -m PermissionSet:Deployment_Copilot_D360_Connector`. `setup.sh` assigns it to the connector's integration user.
+3. Run `bash data360/setup.sh copilot`. It creates the 2 data streams, 2 custom data model objects, the mappings, and the `Weekly_Adoption` calculated insight, then starts the first ingestion.
+4. Wait until `SELECT COUNT(*) FROM Adoption_Metric__dlm` (through `/ssot/query-sql`) returns 12, then run the insight with the command the script prints.
+5. Deploy `AdoptionInsightAction`, the permission set, and the agent bundle, then publish. `get_adoption` already points at the Data 360 action.
+6. Compare the two sources before you trust either. `AdoptionSnapshotAction` and `AdoptionInsightAction` take the same input, so call both for every engagement in anonymous Apex and diff the summaries.
 
-The exact Data 360 screens change often. Use the current help docs while you build and write down what you did.
+The README's "Data 360 version" section has the comparison and the measured lag.
 
 ## Likely fixes when you first deploy
 
@@ -162,9 +163,15 @@ These are the places I'd look first.
 |---|---|
 | `preview` crashes with `Cannot read properties of undefined (reading 'replace')` | A CLI bug when the script has no `default_agent_user`, which employee agents don't need. Fixed in `@salesforce/agents` 2.3.2. Run `sf plugins install @salesforce/plugin-agent@latest`. |
 | `validate` passes but `preview` rejects a parameter type | `validate` only checks syntax. Preview checks types against Apex. An Apex `Id` input needs `object` with `complex_data_type_name: "lightning__recordIdType"`, and an Apex `Integer` output needs `object` with `"lightning__integerType"`, even though the docs say to use `string` for IDs. |
+| The agent says "no data" after the user picks from a list of matches | Before an engagement is selected, nothing has been looked up, but the model may still answer. Say so in the no-selection branch, and tell it to call `find_engagement` with the full name of the pick. |
+| `sf agent activate` hangs | Without `--version` it waits at an interactive prompt. Pass `--version N`. |
 | An action runs with `{}` as its input | A variable set from a null output is `None`, not `""`, so `!= ""` is true. Guard with `is not None and != ""`. |
 | The agent answers without calling an action it was told to call | An action offered as a tool is optional, and the model can skip it. If the answer depends on it, `run` it in the reasoning logic instead. |
+| Agent is active but missing from the Agentforce panel's agent list | Agents published from the CLI don't get the auto-generated access permission set that UI-built agents get. `Deployment_Copilot_Access` grants it through `agentAccesses`. Assign it, then reload the page. |
 | `publish` overwrites local files | Publish retrieves the agent and its dependencies back into the project (Apex classes, the prompt template, and new `aiAgents/` and `aiAgentDefinitionVersions/` folders). Diff before you commit. |
+| Data stream API says custom fields are "missing a value" | The Data 360 CRM connector runs as its own integration user, which can't read your custom objects. Assign `Deployment_Copilot_D360_Connector` to the user that holds `sfdc_a360_sfcrm_data_extract`. In the stream body, name custom fields `Field_c`, not `Field__c`. |
+| Calculated insight: "one side of the math operation contains aggregation" | The validator checks the shape of the expression. `100 * SUM(a) / SUM(b)` passes. `SUM(a) * 100 / SUM(b)` and `SUM(a * 100) / SUM(b)` fail. |
+| `sf api request rest --method DELETE` fails with "No 'mode' found in 'body' entry" | Pass `--body '{"mode":"raw","raw":""}'`. |
 | `validate` complains about an action's outputs | Every action needs an `outputs:` block, and the names must match the Apex `@InvocableVariable` fields exactly, case included. |
 | Prompt template action not found | The template API name must be exactly `Draft_Deployment_Roadmap`, and the inputs must be named `engagementSummary` and `constraints`. |
 | Prompt template deploy "succeeds" but the output doesn't change | Published versions can't be changed. Bump the `_N` suffix on `activeVersionIdentifier` and `versionIdentifier`, then redeploy. |

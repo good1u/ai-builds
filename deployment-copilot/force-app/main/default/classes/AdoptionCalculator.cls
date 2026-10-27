@@ -33,12 +33,16 @@ public with sharing class AdoptionCalculator {
         public List<String> flags = new List<String>();
     }
 
-    /** Percent to one decimal place. Returns 0 when the denominator is missing or zero. */
+    /**
+     * Percent to one decimal place, rounding half up. Returns 0 when the denominator is missing or zero.
+     * Half up matches SQL ROUND in the Data 360 insight. Apex's default (half even) made 49 of 400
+     * read 12.2% here and 12.3% there.
+     */
     public static Decimal percent(Decimal numerator, Decimal denominator) {
         if (numerator == null || denominator == null || denominator == 0) {
             return 0;
         }
-        return ((numerator * 100) / denominator).setScale(1);
+        return ((numerator * 100) / denominator).setScale(1, System.RoundingMode.HALF_UP);
     }
 
     public static Snapshot toSnapshot(Adoption_Metric__c m) {
@@ -55,16 +59,30 @@ public with sharing class AdoptionCalculator {
      * @param engagementWeek     1-based week of the engagement as of the latest metric
      */
     public static Assessment assess(List<Adoption_Metric__c> metricsNewestFirst, Integer engagementWeek) {
+        List<Snapshot> snapshots = new List<Snapshot>();
+        if (metricsNewestFirst != null) {
+            for (Adoption_Metric__c m : metricsNewestFirst) {
+                snapshots.add(toSnapshot(m));
+            }
+        }
+        return assessSnapshots(snapshots, engagementWeek);
+    }
+
+    /**
+     * Same rules as assess(), for rates that were already calculated elsewhere (the Data 360 insight).
+     * @param snapshotsNewestFirst weekly snapshots for ONE engagement, newest first
+     */
+    public static Assessment assessSnapshots(List<Snapshot> snapshotsNewestFirst, Integer engagementWeek) {
         Assessment a = new Assessment();
-        if (metricsNewestFirst == null || metricsNewestFirst.isEmpty()) {
+        if (snapshotsNewestFirst == null || snapshotsNewestFirst.isEmpty()) {
             a.riskLevel = RISK_UNKNOWN;
             a.flags.add('No adoption data has been logged yet');
             return a;
         }
 
-        a.latest = toSnapshot(metricsNewestFirst[0]);
-        if (metricsNewestFirst.size() > 1) {
-            a.prior = toSnapshot(metricsNewestFirst[1]);
+        a.latest = snapshotsNewestFirst[0];
+        if (snapshotsNewestFirst.size() > 1) {
+            a.prior = snapshotsNewestFirst[1];
             a.adoptionDeltaPoints = (a.latest.adoptionRate - a.prior.adoptionRate).setScale(1);
             a.containmentDeltaPoints = (a.latest.containmentRate - a.prior.containmentRate).setScale(1);
         }

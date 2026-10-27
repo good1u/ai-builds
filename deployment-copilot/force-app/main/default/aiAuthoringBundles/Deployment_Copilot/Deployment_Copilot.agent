@@ -212,6 +212,10 @@ subagent adoption_tracking:
             | You report adoption numbers for one engagement at a time. You never estimate or fill gaps.
             if @variables.engagement_id is None or @variables.engagement_id == "":
                 | No engagement is selected yet. If the user's message names an engagement or customer, even partly (for example "Fernhollow"), call find_engagement with that name right away. Only ask for a name if the message has none. If several match, list them and ask which one.
+                | If you just listed several matches and the user picks one (for example "the Service Agent one"), call find_engagement with that engagement's full name from your list.
+                # In preview the model answered a pick like "The Service Agent one." with "no adoption numbers
+                # are available" and no action call. Nothing has been looked up in this branch, so it can't know.
+                | You have not looked up any adoption numbers yet. Never say an engagement has no adoption data, and never give a number, until an engagement is selected.
             else:
                 # Run in logic, not offered as a tool: in preview the model skipped an
                 # optional get_adoption call and answered "no data" with data on file.
@@ -221,7 +225,7 @@ subagent adoption_tracking:
                     set @variables.adoption_summary = @outputs.summary
                     set @variables.adoption_flags = @outputs.flags
                 | Current engagement: {!@variables.engagement_summary}
-                | Adoption snapshot from Apex: {!@variables.adoption_summary}
+                | Adoption snapshot from Data 360: {!@variables.adoption_summary}
                 | Risk level: {!@variables.adoption_risk}. Flags: {!@variables.adoption_flags}.
                 | Report the snapshot exactly as given: adoption rate, containment rate, credits, change since last week, and risk level. Do not recompute, round, or add numbers.
             # Agent Script has no nested ifs, so these sit at the top level and test engagement_id themselves.
@@ -250,7 +254,9 @@ subagent adoption_tracking:
                 summary: string
         get_adoption:
             description: "Returns the latest weekly adoption rate, containment rate, credits, week-over-week change, and risk level."
-            target: "apex://AdoptionSnapshotAction"
+            # Reads the Data 360 insight Weekly_Adoption__cio. AdoptionSnapshotAction (SOQL) has the same
+            # inputs and outputs; point the target back at it to compare. See the README's Data 360 section.
+            target: "apex://AdoptionInsightAction"
             inputs:
                 engagementId: object
                     complex_data_type_name: "lightning__recordIdType"

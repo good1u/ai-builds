@@ -17,6 +17,12 @@ private class AdoptionCalculatorTest {
     }
 
     @IsTest
+    static void percentRoundsHalfUpLikeDataCloud() {
+        // 12.25% exactly. SQL ROUND in Weekly_Adoption__cio gives 12.3, so Apex must too.
+        System.assertEquals(12.3, AdoptionCalculator.percent(49, 400));
+    }
+
+    @IsTest
     static void noDataIsUnknownNotLow() {
         AdoptionCalculator.Assessment a = AdoptionCalculator.assess(new List<Adoption_Metric__c>(), 4);
         System.assertEquals(AdoptionCalculator.RISK_UNKNOWN, a.riskLevel);

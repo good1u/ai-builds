@@ -81,8 +81,8 @@ public with sharing class AdoptionSnapshotAction {
         return res;
     }
 
-    @TestVisible
-    private static String summarize(AdoptionCalculator.Assessment a, Integer week) {
+    /** Shared with AdoptionInsightAction so both sources describe a week the same way. */
+    public static String summarize(AdoptionCalculator.Assessment a, Integer week) {
         if (a.latest == null) {
             return 'No adoption data has been logged for this engagement yet.';
         }

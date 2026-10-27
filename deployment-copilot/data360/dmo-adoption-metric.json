@@ -1,0 +1,56 @@
+{
+  "name": "Adoption_Metric",
+  "label": "Adoption Metric",
+  "category": "Other",
+  "dataSpaceName": "default",
+  "fields": [
+    {
+      "name": "Id",
+      "label": "Id",
+      "dataType": "Text",
+      "isPrimaryKey": true
+    },
+    {
+      "name": "Engagement_Id",
+      "label": "Engagement Id",
+      "dataType": "Text",
+      "isPrimaryKey": false
+    },
+    {
+      "name": "Week_Ending",
+      "label": "Week Ending",
+      "dataType": "Date",
+      "isPrimaryKey": false
+    },
+    {
+      "name": "Eligible_Users",
+      "label": "Eligible Users",
+      "dataType": "Number",
+      "isPrimaryKey": false
+    },
+    {
+      "name": "Active_Users",
+      "label": "Active Users",
+      "dataType": "Number",
+      "isPrimaryKey": false
+    },
+    {
+      "name": "Conversations",
+      "label": "Conversations",
+      "dataType": "Number",
+      "isPrimaryKey": false
+    },
+    {
+      "name": "Resolved_By_Agent",
+      "label": "Resolved By Agent",
+      "dataType": "Number",
+      "isPrimaryKey": false
+    },
+    {
+      "name": "Credits_Consumed",
+      "label": "Credits Consumed",
+      "dataType": "Number",
+      "isPrimaryKey": false
+    }
+  ]
+}

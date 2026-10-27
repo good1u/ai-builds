@@ -1,0 +1,83 @@
+{
+  "name": "Adoption_Metric_Home",
+  "label": "Adoption Metric Home",
+  "connectorInfo": {
+    "connectorType": "SalesforceDotCom",
+    "connectorDetails": {
+      "name": "SalesforceDotCom_Home",
+      "sourceObject": "Adoption_Metric__c"
+    }
+  },
+  "dataLakeObjectInfo": {
+    "name": "Adoption_Metric_Home",
+    "label": "Adoption Metric Home",
+    "category": "Other",
+    "dataspaceInfo": [
+      {
+        "name": "default"
+      }
+    ],
+    "dataLakeFieldInputRepresentations": [
+      {
+        "name": "Id",
+        "label": "Record ID",
+        "dataType": "Text",
+        "isPrimaryKey": true
+      },
+      {
+        "name": "Name",
+        "label": "Name",
+        "dataType": "Text",
+        "isPrimaryKey": false
+      },
+      {
+        "name": "Engagement_c",
+        "label": "Engagement",
+        "dataType": "Text",
+        "isPrimaryKey": false
+      },
+      {
+        "name": "Week_Ending_c",
+        "label": "Week Ending",
+        "dataType": "Date",
+        "isPrimaryKey": false
+      },
+      {
+        "name": "Eligible_Users_c",
+        "label": "Eligible Users",
+        "dataType": "Number",
+        "isPrimaryKey": false
+      },
+      {
+        "name": "Active_Users_c",
+        "label": "Active Users",
+        "dataType": "Number",
+        "isPrimaryKey": false
+      },
+      {
+        "name": "Conversations_c",
+        "label": "Conversations",
+        "dataType": "Number",
+        "isPrimaryKey": false
+      },
+      {
+        "name": "Resolved_By_Agent_c",
+        "label": "Resolved By Agent",
+        "dataType": "Number",
+        "isPrimaryKey": false
+      },
+      {
+        "name": "Credits_Consumed_c",
+        "label": "Credits Consumed",
+        "dataType": "Number",
+        "isPrimaryKey": false
+      },
+      {
+        "name": "LastModifiedDate",
+        "label": "Last Modified Date",
+        "dataType": "DateTime",
+        "isPrimaryKey": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "name": "Engagement_Home",
+  "label": "Engagement Home",
+  "connectorInfo": {
+    "connectorType": "SalesforceDotCom",
+    "connectorDetails": {
+      "name": "SalesforceDotCom_Home",
+      "sourceObject": "Engagement__c"
+    }
+  },
+  "dataLakeObjectInfo": {
+    "name": "Engagement_Home",
+    "label": "Engagement Home",
+    "category": "Other",
+    "dataspaceInfo": [
+      {
+        "name": "default"
+      }
+    ],
+    "dataLakeFieldInputRepresentations": [
+      {
+        "name": "Id",
+        "label": "Record ID",
+        "dataType": "Text",
+        "isPrimaryKey": true
+      },
+      {
+        "name": "Name",
+        "label": "Name",
+        "dataType": "Text",
+        "isPrimaryKey": false
+      },
+      {
+        "name": "Account_c",
+        "label": "Account",
+        "dataType": "Text",
+        "isPrimaryKey": false
+      },
+      {
+        "name": "Stage_c",
+        "label": "Stage",
+        "dataType": "Text",
+        "isPrimaryKey": false
+      },
+      {
+        "name": "Status_c",
+        "label": "Status",
+        "dataType": "Text",
+        "isPrimaryKey": false
+      },
+      {
+        "name": "Start_Date_c",
+        "label": "Start Date",
+        "dataType": "Date",
+        "isPrimaryKey": false
+      },
+      {
+        "name": "Target_End_Date_c",
+        "label": "Target End Date",
+        "dataType": "Date",
+        "isPrimaryKey": false
+      },
+      {
+        "name": "Readiness_Score_c",
+        "label": "Readiness Score",
+        "dataType": "Number",
+        "isPrimaryKey": false
+      },
+      {
+        "name": "LastModifiedDate",
+        "label": "Last Modified Date",
+        "dataType": "DateTime",
+        "isPrimaryKey": false
+      }
+    ]
+  }
+}

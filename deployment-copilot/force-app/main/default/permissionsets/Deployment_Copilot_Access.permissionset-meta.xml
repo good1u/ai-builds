@@ -3,6 +3,10 @@
     <description>Gives a deployment strategist access to the Deployment Copilot data model and Apex actions.</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>Deployment Copilot Access</label>
+    <agentAccesses>
+        <agentName>Deployment_Copilot</agentName>
+        <enabled>true</enabled>
+    </agentAccesses>
     <classAccesses>
         <apexClass>ScoreReadinessAction</apexClass>
         <enabled>true</enabled>
@@ -13,6 +17,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AdoptionSnapshotAction</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AdoptionInsightAction</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>

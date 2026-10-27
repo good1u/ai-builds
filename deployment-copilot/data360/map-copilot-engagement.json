@@ -1,0 +1,34 @@
+{
+  "sourceEntityDeveloperName": "Engagement_Home__dll",
+  "targetEntityDeveloperName": "Copilot_Engagement__dlm",
+  "fieldMapping": [
+    {
+      "sourceFieldDeveloperName": "Id__c",
+      "targetFieldDeveloperName": "Id__c"
+    },
+    {
+      "sourceFieldDeveloperName": "Name__c",
+      "targetFieldDeveloperName": "Name__c"
+    },
+    {
+      "sourceFieldDeveloperName": "Account_c__c",
+      "targetFieldDeveloperName": "Account_Id__c"
+    },
+    {
+      "sourceFieldDeveloperName": "Stage_c__c",
+      "targetFieldDeveloperName": "Stage__c"
+    },
+    {
+      "sourceFieldDeveloperName": "Status_c__c",
+      "targetFieldDeveloperName": "Status__c"
+    },
+    {
+      "sourceFieldDeveloperName": "Start_Date_c__c",
+      "targetFieldDeveloperName": "Start_Date__c"
+    },
+    {
+      "sourceFieldDeveloperName": "Target_End_Date_c__c",
+      "targetFieldDeveloperName": "Target_End_Date__c"
+    }
+  ]
+}
