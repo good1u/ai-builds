@@ -172,6 +172,9 @@ These are the places I'd look first.
 | Data stream API says custom fields are "missing a value" | The Data 360 CRM connector runs as its own integration user, which can't read your custom objects. Assign `Deployment_Copilot_D360_Connector` to the user that holds `sfdc_a360_sfcrm_data_extract`. In the stream body, name custom fields `Field_c`, not `Field__c`. |
 | Calculated insight: "one side of the math operation contains aggregation" | The validator checks the shape of the expression. `100 * SUM(a) / SUM(b)` passes. `SUM(a) * 100 / SUM(b)` and `SUM(a * 100) / SUM(b)` fail. |
 | `sf api request rest --method DELETE` fails with "No 'mode' found in 'body' entry" | Pass `--body '{"mode":"raw","raw":""}'`. |
+| Agent test fails topic or actions on a case that behaved fine | A case with no `expectedTopic` or `expectedActions` expects none. Set both on every case. The router's own name is `topic_selector`, and Salesforce's injection guardrail reports `Prompt_Injection`. |
+| Agent test says a roadmap is "already saved" | The suite runs against live data. Run `scripts/apex/clear-roadmaps.apex` first. |
+| The agent asks "which one?" when the full name was given | The model shortened the name before calling `find_engagement`. Tell it to pass every word of the name. |
 | `validate` complains about an action's outputs | Every action needs an `outputs:` block, and the names must match the Apex `@InvocableVariable` fields exactly, case included. |
 | Prompt template action not found | The template API name must be exactly `Draft_Deployment_Roadmap`, and the inputs must be named `engagementSummary` and `constraints`. |
 | Prompt template deploy "succeeds" but the output doesn't change | Published versions can't be changed. Bump the `_N` suffix on `activeVersionIdentifier` and `versionIdentifier`, then redeploy. |

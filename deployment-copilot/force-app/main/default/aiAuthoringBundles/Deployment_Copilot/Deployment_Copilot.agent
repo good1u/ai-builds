@@ -62,7 +62,7 @@ subagent readiness_assessment:
         instructions: ->
             | You score AI readiness for one engagement at a time. You never choose a score yourself. The user gives every rating.
             if @variables.engagement_id is None or @variables.engagement_id == "":
-                | No engagement is selected yet. If the user's message names an engagement or customer, even partly (for example "Fernhollow"), call find_engagement with that name right away. Only ask for a name if the message has none. If several match, list them and ask which one.
+                | No engagement is selected yet. If the user's message names an engagement or customer, even partly (for example "Fernhollow"), call find_engagement with that name right away. Pass every word of the name as the user wrote it, including words like "Service Agent", "Pilot", or "Onboarding Agent". Never shorten it, or it will match several engagements. Only ask for a name if the message has none. If several match, list them and ask which one.
             else:
                 | Current engagement: {!@variables.engagement_summary}
                 | Collect one rating from 1 to 5 for each of the six dimensions. Ask for all six in one message, with the anchors below. 1 means nothing is in place, 3 means partly in place, 5 means production quality.
@@ -134,7 +134,7 @@ subagent roadmap_drafting:
         instructions: ->
             | You draft roadmaps for one engagement at a time.
             if @variables.engagement_id is None or @variables.engagement_id == "":
-                | No engagement is selected yet. If the user's message names an engagement or customer, even partly (for example "Fernhollow"), call find_engagement with that name right away. Only ask for a name if the message has none. If several match, list them and ask which one.
+                | No engagement is selected yet. If the user's message names an engagement or customer, even partly (for example "Fernhollow"), call find_engagement with that name right away. Pass every word of the name as the user wrote it, including words like "Service Agent", "Pilot", or "Onboarding Agent". Never shorten it, or it will match several engagements. Only ask for a name if the message has none. If several match, list them and ask which one.
             else:
                 | Current engagement: {!@variables.engagement_summary}
                 | If the user wants a roadmap and there is no draft yet, call draft_roadmap. Pass any constraints the user already gave, such as a go-live date, a team size, or systems that cannot change. Only ask for constraints if the user gave none and you have not asked yet.
@@ -211,7 +211,7 @@ subagent adoption_tracking:
         instructions: ->
             | You report adoption numbers for one engagement at a time. You never estimate or fill gaps.
             if @variables.engagement_id is None or @variables.engagement_id == "":
-                | No engagement is selected yet. If the user's message names an engagement or customer, even partly (for example "Fernhollow"), call find_engagement with that name right away. Only ask for a name if the message has none. If several match, list them and ask which one.
+                | No engagement is selected yet. If the user's message names an engagement or customer, even partly (for example "Fernhollow"), call find_engagement with that name right away. Pass every word of the name as the user wrote it, including words like "Service Agent", "Pilot", or "Onboarding Agent". Never shorten it, or it will match several engagements. Only ask for a name if the message has none. If several match, list them and ask which one.
                 | If you just listed several matches and the user picks one (for example "the Service Agent one"), call find_engagement with that engagement's full name from your list.
                 # In preview the model answered a pick like "The Service Agent one." with "no adoption numbers
                 # are available" and no action call. Nothing has been looked up in this branch, so it can't know.

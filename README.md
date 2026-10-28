@@ -13,7 +13,7 @@ This repo is where those builds live, including what broke and how I fixed it.
 | [Time Audit app (Lovable)](./time-audit-lovable) | Surveys a user on where their 168 hours per week went, compares against a goal week and provides a chart. | Lovable, Claude, Supabase | |
 | [Sales support agent (Salesforce)](./sales-support-agent) | An AI agent that answers questions from knowledge articles and manages CRM records like opportunities, contacts and activities. | Agentforce, Prompt Builder, Flow | |
 | [Call to proposal agent (Claude)](./Call-to-proposal-claude) | Creates a polished proposal from call transcripts in minutes. | Claude, RAG, Google Docs Connector | [2-min video](https://www.loom.com/share/da96f6c1ce484bc0b90cb979df084f6f) |
-| [Deployment copilot](./deployment-copilot) | Helps a deployment strategist run a 12-week customer AI engagement: scores AI readiness, drafts a roadmap the user approves before it saves, and flags falling adoption. | Agentforce, Agent Script, Prompt Builder, Apex | |
+| [Deployment copilot](./deployment-copilot) | Helps a deployment strategist run a 12-week customer AI engagement: scores AI readiness, drafts a roadmap the user approves before it saves, and flags falling adoption. | Agentforce, Agent Script, Prompt Builder, Apex, Data 360 | [Demo video](https://www.loom.com/share/772640f3b7744d9188f7ecfded1356d2) |
 
 ## How I build
 
